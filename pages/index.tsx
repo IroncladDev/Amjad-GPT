@@ -312,9 +312,11 @@ export async function getServerSideProps({
       },
     };
   } else {
-    res.setHeader("set-cookie", "REPL_AUTH=;");
+    res.setHeader("set-cookie", "REPL_AUTH=FFFFFFFF; Max-Age=0;");
     return {
-      props: {},
+      redirect: {
+        destination: "/reauth"
+      }
     };
   }
 }

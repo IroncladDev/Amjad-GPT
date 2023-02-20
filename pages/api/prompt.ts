@@ -36,9 +36,18 @@ app.post(async (req: NextApiRequest, res: NextApiResponse) => {
           roles,
         }),
       }
-    ).then((r) => r.json());
+    )
 
-    res.json(resp);
+    if(resp.status === 200){
+      const jsonRes = await resp.json();
+      res.json(jsonRes);
+    } else {
+      res.status(500).json({
+        success: false,
+        answer: null,
+        message: "Internal Server Error, Please try again"
+      })
+    }
   } else {
     res.status(400).json({
       success: false,

@@ -25,7 +25,7 @@ const IntroInfo = ({ submit }: { submit: (v: string) => void }) => {
         <Button text="Try Ghostwriter" iconLeft={<GhostwriterIcon/>} colorway="blurple" />
       </View>
       <hr/>
-      {defaultOptions.map(option => <View css={[rcss.flex.row]}>
+      {defaultOptions.map(option => <View css={[rcss.flex.row]} key={option}>
         <Button onClick={() => {
           setMessage(option);
           submit(option)

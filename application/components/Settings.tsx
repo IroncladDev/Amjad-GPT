@@ -1,5 +1,4 @@
-import { View, text, tokens, rcss, Button, Text } from 'node_modules'
-import { MarkdownWrapper } from './MarkdownWrapper'
+import { View, rcss, Text } from 'node_modules'
 import { useAtom } from 'jotai'
 import { AppSettings } from 'application/state'
 
