@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/lioshi.min.css');
+
+:root {
+  --background-root: #0e1525;
+  --background-default: #1c2333;
+  --background-higher: #2b3245;
+  --background-highest: #3c445c;
+  --background-overlay: #0e1525a0;
+  --foreground-default: #f5f9fc;
+  --foreground-dimmer: #c2c8cc;
+  --foreground-dimmest: #9da2a6;
+  --outline-dimmest: #2b3245;
+  --outline-dimmer: #3c445c;
+  --outline-default: #4e5569;
+  --outline-stronger: #5f677a;
+  --outline-strongest: #70788c;
+  --accent-primary-dimmest: #004182;
+  --accent-primary-dimmer: #0053a6;
+  --accent-primary-default: #0079f2;
+  --accent-primary-stronger: #57abff;
+  --accent-primary-strongest: #b2d9ff;
+  --accent-positive-dimmest: #044a10;
+  --accent-positive-dimmer: #046113;
+  --accent-positive-default: #009118;
+  --accent-positive-stronger: #6cd97e;
+  --accent-positive-strongest: #bfffca;
+  --accent-negative-dimmest: #660000;
+  --accent-negative-dimmer: #a60808;
+  --accent-negative-default: #e52222;
+  --accent-negative-stronger: #ff6666;
+  --accent-negative-strongest: #ffcfcf;
+  --accent-red-dimmest: #660000;
+  --accent-red-dimmer: #a60808;
+  --accent-red-default: #e52222;
+  --accent-red-stronger: #ff6666;
+  --accent-red-strongest: #ffcfcf;
+  --accent-orange-dimmest: #542a00;
+  --accent-orange-dimmer: #703800;
+  --accent-orange-default: #ad5700;
+  --accent-orange-stronger: #d4781c;
+  --accent-orange-strongest: #ffbd7a;
+  --accent-yellow-dimmest: #4d4000;
+  --accent-yellow-dimmer: #635300;
+  --accent-yellow-default: #967d00;
+  --accent-yellow-stronger: #bfa730;
+  --accent-yellow-strongest: #f2e088;
+  --accent-lime-dimmest: #314a00;
+  --accent-lime-dimmer: #3d5c00;
+  --accent-lime-default: #5a8700;
+  --accent-lime-stronger: #87b825;
+  --accent-lime-strongest: #c4e581;
+  --accent-green-dimmest: #044a10;
+  --accent-green-dimmer: #046113;
+  --accent-green-default: #009118;
+  --accent-green-stronger: #6cd97e;
+  --accent-green-strongest: #7aeb8d;
+  --accent-teal-dimmest: #004452;
+  --accent-teal-dimmer: #006073;
+  --accent-teal-default: #0093b0;
+  --accent-teal-stronger: #27b9d6;
+  --accent-teal-strongest: #69d9f0;
+  --accent-blue-dimmest: #004182;
+  --accent-blue-dimmer: #0053a6;
+  --accent-blue-default: #0079f2;
+  --accent-blue-stronger: #57abff;
+  --accent-blue-strongest: #b2d9ff;
+  --accent-blurple-dimmest: #39298a;
+  --accent-blurple-dimmer: #5239cc;
+  --accent-blurple-default: #795eff;
+  --accent-blurple-stronger: #a694ff;
+  --accent-blurple-strongest: #cec4ff;
+  --accent-purple-dimmest: #582987;
+  --accent-purple-dimmer: #7633b8;
+  --accent-purple-default: #a64dff;
+  --accent-purple-stronger: #c78fff;
+  --accent-purple-strongest: #e2c4ff;
+  --accent-magenta-dimmest: #6b1a6b;
+  --accent-magenta-dimmer: #8a218a;
+  --accent-magenta-default: #c73ac7;
+  --accent-magenta-stronger: #f562f5;
+  --accent-magenta-strongest: #ffbfff;
+  --accent-pink-dimmest: #6e1b52;
+  --accent-pink-dimmer: #8f226b;
+  --accent-pink-default: #d4359f;
+  --accent-pink-stronger: #ff70cf;
+  --accent-pink-strongest: #ffbae8;
+  --accent-grey-dimmest: #404040;
+  --accent-grey-dimmer: #545454;
+  --accent-grey-default: #808080;
+  --accent-grey-stronger: #a6a6a6;
+  --accent-grey-strongest: #d4d4d4;
+  --accent-brown-dimmest: #594031;
+  --accent-brown-dimmer: #75503b;
+  --accent-brown-default: #a3765c;
+  --accent-brown-stronger: #d49877;
+  --accent-brown-strongest: #ffc8a8;
+  --black: #0e1525;
+  --white: #fcfcfc;
+  --border-radius-1: 1px;
+  --border-radius-2: 2px;
+  --border-radius-4: 4px;
+  --border-radius-8: 8px;
+  --border-radius-12: 12px;
+  --border-radius-16: 16px;
+  --border-radius-default: var(--border-radius-8);
+  --border-radius-round: 1028px;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-128: 128px;
+  --space-256: 256px;
+  --space-default: var(--space-8);
+  --shadow-1: 0px 4px 8px 0px rgba(2, 2, 3, 0.16);
+  --shadow-2: 0px 8px 16px 0px rgba(2, 2, 3, 0.32);
+  --shadow-3: 0px 16px 32px 0px rgba(2, 2, 3, 0.48);
+  --shadow-default: var(--shadow-1);
+  --font-family-default: "IBM Plex Sans", sans-serif;
+  --font-family-code: "ReplitHack", monospace;
+  --font-size-small: 12px;
+  --line-height-small: 1.5;
+  --font-size-default: 14px;
+  --line-height-default: 1.6;
+  --font-size-subhead-default: 16px;
+  --line-height-subhead-default: 1.375;
+  --font-size-subhead-big: 20px;
+  --line-height-subhead-big: 1.4;
+  --font-size-header-default: 24px;
+  --line-height-header-default: 1.333;
+  --font-size-header-big: 32px;
+  --line-height-header-big: 1.25;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  --transition-duration-snappy: 120ms;
+  --transition-timing-function-snappy: ease-out;
+  --transition-duration-chill: 300ms;
+  --transition-timing-function-chill: ease-in-out;
+  --border-width-default: 1px;
+  --single-line: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--background-root);
+  font-family: var(--font-family-default);
+  color: var(--foreground-default);
+}
+
+textarea {
+  resize: vertical;
+}
+
+a {
+  color: var(--accent-primary-stronger);
+  text-decoration: none;
+}
+
+.replit-ui-theme-root {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.markdown {
+  & > * {
+    margin-bottom: 8px;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0px;
+  }
+
+  & pre {
+    background: var(--background-overlay);
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+
+  & code {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-family: 'Monaco', monospace
+  }
+
+  & pre > code {
+    background: transparent;
+    padding: 0 0;
+  }
+}
+
+hr {
+  border: none;
+  border-top: solid 2px var(--background-highest);
+}

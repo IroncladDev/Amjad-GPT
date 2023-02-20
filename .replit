@@ -1,0 +1,41 @@
+run = "npm run dev"
+
+hidden = [".config", "package-lock.json"]
+
+[[hints]]
+regex = "Error \\[ERR_REQUIRE_ESM\\]"
+message = "We see that you are using require(...) inside your code. We currently do not support this syntax. Please use 'import' instead when using external modules. (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)"
+
+[nix]
+channel = "stable-22_11"
+
+[env]
+XDG_CONFIG_HOME = "/home/runner/.config"
+PATH = "/home/runner/$REPL_SLUG/.config/npm/node_global/bin:/home/runner/$REPL_SLUG/node_modules/.bin"
+npm_config_prefix = "/home/runner/$REPL_SLUG/.config/npm/node_global"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", ".config", "package.json", "package-lock.json"]
+
+[packager]
+language = "nodejs"
+
+  [packager.features]
+  packageSearch = false
+  guessImports = false
+  enabledForHosting = false
+
+[unitTest]
+language = "nodejs"
+
+[languages]
+
+[languages.javascript]
+pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
+
+[languages.javascript.languageServer]
+start = "typescript-language-server --stdio"
+
+[auth]
+pageEnabled = true
+buttonEnabled = false
