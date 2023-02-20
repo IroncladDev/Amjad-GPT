@@ -208,6 +208,10 @@ a {
     background: transparent;
     padding: 0 0;
   }
+
+  & ul, ol {
+    padding-left: 24px;
+  }
 }
 
 hr {

@@ -11,5 +11,5 @@ export const tabAtom = atom(0);
 export const messageAtom = atom<string>("");
 
 export const AppSettings = {
-  delayMsMultiplier: atom(25),
+  delayMsMultiplier: atomWithStorage<number>("settingsDelayMsMultiplier", 25),
 };

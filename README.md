@@ -1,10 +1,23 @@
-# Todo
-1. Give users a quota of 25 messages per replit user.  For every 4 cycles tipped (exclude fee), allow one more q-a response.  Do not count failures as part of the user's quota, floor.
-2. Provide info and promote GW chat over this
-3. Fix welcome screen
-4. Make users open this in a new tab
-5. Clean code up
-6. Settings tab in ws pane
-7. Demo video
-8. Dev.to post
-9. Launch on all platforms tomorrow
+# Amjad Masad Chatbot
+
+A chatbot trained to act like [Amjad Masad](https://twitter.com/amasad), built with [LangChain](https://twitter.com/langchainai) and Next.js.
+
+The OpenAI model being used is `text-davinci-003`, trained with:
+ - Major parts of the [Replit docs](https://docs.replit.com)
+ - The [Replit blog](https://blog.replit.com)
+ - The Replit [landing page](https://replit.com)
+ - The Replit Employee Organization Chart
+ - Amjad's [personal blog](https://amasad.me)
+ - Amjad's [AmA Repl](https://replit.com/@amasad/AmA?v=1)
+ - Amjad's Podcasts
+ - Some of [Amjad's Tweets](https://twitter.com/amasad)
+ - Replit's [Terms of Service](https://replit.com/site/terms) and [Community guidelines](https://welcome.moderation.repl.co)
+ - Some random facts the AI should be aware of
+
+All of this data was compiled into a `.index` file.  [Zahid Khawaja](https://twitter.com/chillzaza_) has an [Awesome Tutorial](https://replit.com/@zahidkhawaja/Replit-Assistant?v=1) on how to do this if you want to make your own.
+
+Speaking of which, Thanks a lot Zahid, I couldn't have done this without you 🙏
+
+---
+
+Made with 🧠 & 🔥 by [@IroncladDev](https://twitter.com/IroncladDev)

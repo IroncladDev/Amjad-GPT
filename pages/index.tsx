@@ -181,9 +181,9 @@ const Home = ({ image, username, bio, roles }) => {
 
             <View css={[rcss.flex.grow(1)]} />
 
-            <IconButton alt="Clear Chat" onClick={() => setHistory([])}>
+            {tab === 0 ? <IconButton alt="Clear Chat" onClick={() => setHistory([])}>
               <TrashIcon />
-            </IconButton>
+            </IconButton> : null}
           </View>
 
           {/* Message Body */}
@@ -246,7 +246,7 @@ const Home = ({ image, username, bio, roles }) => {
           </View>
 
           {/* Input Form */}
-          <Surface background="higher">
+          {tab === 0 ? <Surface background="higher">
             <View
               css={[
                 rcss.p(8),
@@ -286,7 +286,7 @@ const Home = ({ image, username, bio, roles }) => {
                 iconLeft={loading ? <LoadingIcon /> : null}
               />
             </View>
-          </Surface>
+          </Surface> : null}
         </Surface>
       </View>
     </View>
