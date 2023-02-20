@@ -27,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="copyright" content="2023" />
           <link rel="icon" type="image/svg" href="/icon.png"></link>
+          <title>Amjad GPT</title>
         </Head>
         <Rui theme="dark">
           <Component {...pageProps} />

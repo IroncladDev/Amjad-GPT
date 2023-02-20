@@ -53,6 +53,7 @@ export default function Login() {
         <img
           src="/icon.png"
           style={{ display: "block", width: "100%", borderRadius: 8 }}
+          alt="Illustration of the Amjad GPT project"
         />
         <Button
           text="Authorize Replit"

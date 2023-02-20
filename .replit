@@ -1,4 +1,4 @@
-run = "yarn dev"
+run = "yarn start || yarn build && yarn start"
 
 hidden = [".config", "package-lock.json"]
 
