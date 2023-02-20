@@ -1,18 +1,26 @@
-import { View, text, tokens, rcss, Button, Text } from 'node_modules'
-import { MarkdownWrapper } from './MarkdownWrapper'
+import { View, text, tokens, rcss, Button, Text } from "node_modules";
+import { MarkdownWrapper } from "./MarkdownWrapper";
 
 export default function About() {
-  return <View css={[rcss.p(16), rcss.flex.column, rcss.colWithGap(8), {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    overflowY: 'auto'
-  }]}>
-    <Text variant="subheadBig">Amjad Masad Chatbot</Text>
-    <Text color="dimmer" multiline>
-      <MarkdownWrapper>{`
+  return (
+    <View
+      css={[
+        rcss.p(16),
+        rcss.flex.column,
+        rcss.colWithGap(8),
+        {
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          overflowY: "auto",
+        },
+      ]}
+    >
+      <Text variant="subheadBig">Amjad Masad Chatbot</Text>
+      <Text color="dimmer" multiline>
+        <MarkdownWrapper>{`
 # Amjad Masad Chatbot
 
 A chatbot trained to act like [Amjad Masad](https://twitter.com/amasad), built with [LangChain](https://twitter.com/langchainai) and Next.js.
@@ -31,11 +39,22 @@ The OpenAI model being used is \`text-davinci-003\`, trained with:
 
 All of this data was compiled into a \`.index\` file.  [Zahid Khawaja](https://twitter.com/chillzaza_) has an [Awesome Tutorial](https://replit.com/@zahidkhawaja/Replit-Assistant?v=1) on how to do this if you want to make your own.
 
-Speaking of which, Thanks a lot Zahid, I couldn't have done this without you 🙏
+Speaking of which, Thanks a lot Zahid, I couldn't have done this without you 🙏`}</MarkdownWrapper>
+      </Text>
+      <Text variant="subheadBig">Quota & Limits</Text>
+      <Text color="dimmer" multiline>
+        <MarkdownWrapper>{`All users(excluding Replit staff get a total of 50 responses.  After that, you must [tip this Repl](https://ai.repl.page/__repl) to increase your quota.
+
+One response is **one question asked** followed by **one answer** from the chatbot.  Your quota will not be measured in tokens or response length.
+
+ - **100 Cycles tip 🍬** - Quota increased by 25 responses
+ - **500 Cycles tip 🍕** - Quota increased by 125 responses
+ - **1000 Cycles tip 🌯** - Quota increased by 250 responses
 
 ---
 
 Made with 🧠 & 🔥 by [@IroncladDev](https://twitter.com/IroncladDev)`}</MarkdownWrapper>
-    </Text>
-  </View>
+      </Text>
+    </View>
+  );
 }

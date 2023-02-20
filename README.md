@@ -1,4 +1,4 @@
-# Amjad Masad Chatbot
+# Amjad GPT
 
 A chatbot trained to act like [Amjad Masad](https://twitter.com/amasad), built with [LangChain](https://twitter.com/langchainai) and Next.js.
 
@@ -17,6 +17,16 @@ The OpenAI model being used is `text-davinci-003`, trained with:
 All of this data was compiled into a `.index` file.  [Zahid Khawaja](https://twitter.com/chillzaza_) has an [Awesome Tutorial](https://replit.com/@zahidkhawaja/Replit-Assistant?v=1) on how to do this if you want to make your own.
 
 Speaking of which, Thanks a lot Zahid, I couldn't have done this without you 🙏
+
+# Quota & Limits
+
+By default, all users (excluding Replit staff) get a total of 50 responses.  After you've used up the fifty responses, you must [tip this Repl](https://ai.repl.page/__repl) to increase your quota.
+
+One response is one question asked followed by one answer from the chatbot.  Your quota will not be measured in tokens or response length.
+
+ - **100 Cycles tip 🍬** - Quota increased by 25 responses
+ - **500 Cycles tip 🍕** - Quota increased by 125 responses
+ - **1000 Cycles tip 🌯** - Quota increased by 250 responses
 
 ---
 

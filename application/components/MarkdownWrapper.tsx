@@ -21,7 +21,13 @@ const clean = (dirty: string) =>
       "s",
       "strike",
       "span",
-      "hr"
+      "hr",
+      "table",
+      "thead",
+      "tbody",
+      "tr",
+      "td",
+      "th",
     ],
     allowedAttributes: {
       a: ["href"],

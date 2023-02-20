@@ -212,6 +212,30 @@ a {
   & ul, ol {
     padding-left: 24px;
   }
+
+  & strong {
+    color: var(--foreground-default);
+  }
+
+  & table {
+    background: var(--background-overlay);
+    border-radius: 8px;
+    table-layout: fixed;
+    cell-spacing: 0;
+    border-collapse: collapse;
+    overflow: hidden;
+    border: solid 1px var(--background-highest);
+    & tr {
+      display: flex;
+      & td, & th {
+        flex: 1 1 0;
+        width: 100%;
+        padding: 4px 8px;
+        border: solid 1px var(--background-highest);
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 hr {

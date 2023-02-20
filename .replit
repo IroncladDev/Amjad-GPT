@@ -1,4 +1,4 @@
-run = "npm run dev"
+run = "yarn dev"
 
 hidden = [".config", "package-lock.json"]
 
@@ -37,5 +37,5 @@ pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
 start = "typescript-language-server --stdio"
 
 [auth]
-pageEnabled = true
+pageEnabled = false
 buttonEnabled = false

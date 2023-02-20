@@ -23,6 +23,7 @@ import { useAtom } from "jotai";
 import IntroInfo from "application/components/IntroInfo";
 import Settings from "application/components/Settings";
 import About from "application/components/About";
+import autosize from "autosize";
 
 // random "loading" messages
 const loadingMessages = [
@@ -47,6 +48,16 @@ const Home = ({ image, username, bio, roles }) => {
   const lastMessage = useType(history);
 
   const submit = async (v: string) => {
+    const historyQueryParam = [];
+    let totalLength = 0;
+
+    for (let i = history.length; i--; ) {
+      totalLength += history[i].message.length;
+      if (totalLength + history[i].message.length <= 4097) {
+        historyQueryParam.push(history[i].message);
+      }
+    }
+
     setRandomLoadingMessage(
       loadingMessages[Math.floor(Math.random() * loadingMessages.length)]
     );
@@ -67,11 +78,10 @@ const Home = ({ image, username, bio, roles }) => {
         accept: "application/json",
       },
       body: JSON.stringify({
-        username,
         bio,
         prompt: v,
         roles,
-        history: history.map(
+        history: historyQueryParam.map(
           ({ message, isAmjad }) =>
             `${isAmjad ? "Amjad Masad" : "Human"}: ${message}`
         ),
@@ -111,7 +121,13 @@ const Home = ({ image, username, bio, roles }) => {
 
   useEffect(() => {
     updateFocusAndScroll();
-  }, [history, loading, lastMessage]);
+  }, [history, loading, lastMessage, tab]);
+
+  useEffect(() => {
+    if (taRef.current) {
+      autosize(taRef.current);
+    }
+  }, []);
 
   const taRef = useRef<HTMLTextAreaElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -122,10 +138,6 @@ const Home = ({ image, username, bio, roles }) => {
     >
       <Head>
         <title>Amjad Masad Chatbot</title>
-        <meta
-          name="description"
-          content="Talk with an AI model that behaves like the CEO of Replit!"
-        />
       </Head>
 
       <View
@@ -181,9 +193,11 @@ const Home = ({ image, username, bio, roles }) => {
 
             <View css={[rcss.flex.grow(1)]} />
 
-            {tab === 0 ? <IconButton alt="Clear Chat" onClick={() => setHistory([])}>
-              <TrashIcon />
-            </IconButton> : null}
+            {tab === 0 ? (
+              <IconButton alt="Clear Chat" onClick={() => setHistory([])}>
+                <TrashIcon />
+              </IconButton>
+            ) : null}
           </View>
 
           {/* Message Body */}
@@ -196,97 +210,98 @@ const Home = ({ image, username, bio, roles }) => {
               },
             ]}
           >
-
             {/* Message Area */}
-            {tab === 0 ? <View
-              css={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                overflowY: "auto",
-              }}
-            >
-              {history.length === 0 ? <IntroInfo submit={submit} /> : null}
+            {tab === 0 ? (
+              <View
+                css={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  overflowY: "auto",
+                }}
+              >
+                {history.length === 0 ? <IntroInfo submit={submit} /> : null}
 
-              {history.map(({ message, userImage, username, isAmjad }, i) => (
-                <ChatMessage
-                  key={i}
-                  message={
-                    i === history.length - 1 && isAmjad
-                      ? lastMessage.join(" ")
-                      : message
-                  }
-                  userImage={userImage}
-                  username={username}
-                  isAmjad={isAmjad}
-                />
-              ))}
+                {history.map(({ message, userImage, username, isAmjad }, i) => (
+                  <ChatMessage
+                    key={i}
+                    message={
+                      i === history.length - 1 && isAmjad
+                        ? lastMessage.join(" ")
+                        : message
+                    }
+                    userImage={userImage}
+                    username={username}
+                    isAmjad={isAmjad}
+                  />
+                ))}
 
-              {loading ? (
-                <ChatMessage
-                  message={randomLoadMessage}
-                  userImage="/amjad.jpeg"
-                  username="Amjad Masad"
-                  isAmjad
-                  loading={loading}
-                />
-              ) : null}
+                {loading ? (
+                  <ChatMessage
+                    message={randomLoadMessage}
+                    userImage="/amjad.jpeg"
+                    username="Amjad Masad"
+                    isAmjad
+                    loading={loading}
+                  />
+                ) : null}
 
-              <div ref={scrollRef}></div>
-            </View> : null}
+                <div ref={scrollRef}></div>
+              </View>
+            ) : null}
 
             {/* About Area */}
-            {tab === 1 ? <About/> : null}
+            {tab === 1 ? <About /> : null}
 
             {/* Settings Area */}
-            {tab === 2 ? <Settings/> : null}
-            
+            {tab === 2 ? <Settings /> : null}
           </View>
 
           {/* Input Form */}
-          {tab === 0 ? <Surface background="higher">
-            <View
-              css={[
-                rcss.p(8),
-                rcss.borderRadius(0, 0, 8, 8),
-                rcss.flex.row,
-                rcss.rowWithGap(8),
-              ]}
-            >
-              <MultiLineInput
-                placeholder="Type a message..."
-                rows={
-                  /\n/.test(value) ? Number(value.match(/\n/g)?.length) + 1 : 1
-                }
-                css={[rcss.flex.grow(1)]}
-                style={{
-                  resize: "none",
-                  opacity: loading ? 0.5 : 1,
-                }}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    if (!e.shiftKey) {
-                      e.preventDefault();
-                      submit(value);
+          {tab === 0 ? (
+            <Surface background="higher">
+              <View
+                css={[
+                  rcss.p(8),
+                  rcss.borderRadius(0, 0, 8, 8),
+                  rcss.flex.row,
+                  rcss.rowWithGap(8),
+                ]}
+              >
+                <MultiLineInput
+                  placeholder="Type a message..."
+                  css={[rcss.flex.grow(1)]}
+                  style={{
+                    resize: "none",
+                    opacity: loading ? 0.5 : 1,
+                    maxHeight: 300,
+                  }}
+                  rows={1}
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      if (!e.shiftKey) {
+                        e.preventDefault();
+                        submit(value);
+                      }
                     }
-                  }
-                }}
-                disabled={loading}
-                ref={taRef}
-              />
-              <Button
-                text="Send"
-                onClick={() => submit(value)}
-                disabled={loading}
-                colorway="primary"
-                iconLeft={loading ? <LoadingIcon /> : null}
-              />
-            </View>
-          </Surface> : null}
+                  }}
+                  disabled={loading}
+                  ref={taRef}
+                />
+                <Button
+                  text="Send"
+                  onClick={() => submit(value)}
+                  disabled={loading}
+                  colorway="primary"
+                  iconLeft={loading ? <LoadingIcon /> : null}
+                />
+              </View>
+            </Surface>
+          ) : null}
         </Surface>
       </View>
     </View>
@@ -315,8 +330,8 @@ export async function getServerSideProps({
     res.setHeader("set-cookie", "REPL_AUTH=FFFFFFFF; Max-Age=0;");
     return {
       redirect: {
-        destination: "/reauth"
-      }
+        destination: "/login",
+      },
     };
   }
 }

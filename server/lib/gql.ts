@@ -13,24 +13,21 @@ export default class Gql {
       [key: string]: any;
     };
   }) {
-    const res = await fetch(
-      "https://replit.com/graphql",
-      {
-        method: "POST",
-        // @ts-ignore
-        headers: {
-          "x-requested-with": "replit",
-          origin: "https://replit.com",
-          accept: "*/*",
-          "content-type": "application/json",
-          connection: "keep-alive",
-          host: "replit.com",
-          "user-agent": "Mozilla/5.0",
-          cookie: "connect.sid=" + this.sid,
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const res = await fetch("https://replit.com/graphql", {
+      method: "POST",
+      // @ts-ignore
+      headers: {
+        "x-requested-with": "replit",
+        origin: "https://replit.com",
+        accept: "*/*",
+        "content-type": "application/json",
+        connection: "keep-alive",
+        host: "replit.com",
+        "user-agent": "Mozilla/5.0",
+        cookie: "connect.sid=" + this.sid,
+      },
+      body: JSON.stringify(body),
+    });
     let response = await res.text();
     try {
       const rs = JSON.parse(response);
