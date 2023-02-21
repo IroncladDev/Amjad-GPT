@@ -39,6 +39,9 @@ The OpenAI model being used is \`text-davinci-003\`, trained with:
 
 All of this data was compiled into a \`.index\` file.  [Zahid Khawaja](https://twitter.com/chillzaza_) has an [Awesome Tutorial](https://replit.com/@zahidkhawaja/Replit-Assistant?v=1) on how to do this if you want to make your own.
 
+ - [Model Source Code](https://github.com/Conner1115/Amjad-GPT-Langchain)
+ - [Frontend Source Code](https://github.com/Conner1115/Amjad-GPT)
+
 Speaking of which, Thanks a lot Zahid, I couldn't have done this without you 🙏`}</MarkdownWrapper>
       </Text>
       <Text variant="subheadBig">Quota & Limits</Text>
