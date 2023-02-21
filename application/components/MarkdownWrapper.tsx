@@ -31,7 +31,7 @@ const clean = (dirty: string) =>
     ],
     allowedAttributes: {
       a: ["href"],
-      img: ["src", "alt"],
+      img: ["src", "alt", "style"],
       span: ["class"],
     },
     allowedIframeHostnames: [],

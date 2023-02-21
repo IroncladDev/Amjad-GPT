@@ -4,6 +4,7 @@ import isReplAuthed from "../../server/lib/auth/isReplAuthed";
 import createRateLimiter from "../../server/lib/auth/rateLimiter";
 import { Quota } from "server/mongo";
 import calculateQuota from "server/lib/calculateQuota";
+import fetch from 'node-fetch'
 
 const app = nc();
 
