@@ -48,30 +48,32 @@ const Home = ({ image, username, bio, roles }) => {
   const lastMessage = useType(history);
 
   const submit = async (v: string) => {
-    if(!v) return;
+    if (!v) return;
     const historyQueryParam = [];
     let totalLength = 0;
-
-    for (let i = history.length; i--; ) {
-      totalLength += history[i].message.length;
-      if (totalLength + history[i].message.length <= 4097) {
-        historyQueryParam.push(history[i].message);
-      }
-    }
 
     setRandomLoadingMessage(
       loadingMessages[Math.floor(Math.random() * loadingMessages.length)]
     );
     setLoading(true);
-    setHistory((hist) => [
-      ...hist,
-      {
-        username,
-        userImage: image,
-        message: v,
-        isAmjad: false,
-      },
-    ]);
+    setHistory((hist) => {
+      const out = [
+        ...hist,
+        {
+          username,
+          userImage: image,
+          message: v,
+          isAmjad: false,
+        },
+      ];
+      for (let i = 0; i < out.length; i++) {
+        totalLength += out[i].message.length;
+        if (totalLength + out[i].message.length <= 3500) {
+          historyQueryParam.push(out[i]);
+        }
+      }
+      return out;
+    });
     const { answer, success, message } = await fetch("/api/prompt", {
       method: "POST",
       headers: {

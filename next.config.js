@@ -9,8 +9,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
+    locales: ["en"],
+    defaultLocale: "en",
   },
   webpack: (config) => {
     // Now we can import GraphQL files as simple as:
@@ -27,7 +27,7 @@ const nextConfig = {
         },
       ],
     });
-    
+
     return config;
   },
 };

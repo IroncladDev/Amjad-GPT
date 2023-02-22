@@ -42,7 +42,10 @@ export default async function calculateQuota(req: NextApiRequest) {
     );
   }
 
-  if (hasRole(req, "admin") || req.headers['x-replit-user-name'] === process.env.REPL_OWNER) {
+  if (
+    hasRole(req, "admin") ||
+    req.headers["x-replit-user-name"] === process.env.REPL_OWNER
+  ) {
     return {
       usage: 0,
       total: 10000,
