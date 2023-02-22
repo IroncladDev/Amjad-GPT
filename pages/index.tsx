@@ -48,6 +48,7 @@ const Home = ({ image, username, bio, roles }) => {
   const lastMessage = useType(history);
 
   const submit = async (v: string) => {
+    if(!v) return;
     const historyQueryParam = [];
     let totalLength = 0;
 
