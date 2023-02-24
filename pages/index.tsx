@@ -18,11 +18,7 @@ import { useRef, useState, useEffect } from "react";
 import { ChatMessage } from "application/components/ChatMessage";
 import useType from "application/hooks/useType";
 import Tab from "application/components/Tab";
-import {
-  historyAtom,
-  tabAtom,
-  messageAtom,
-} from "application/state";
+import { historyAtom, tabAtom, messageAtom } from "application/state";
 import { useAtom } from "jotai";
 import IntroInfo from "application/components/IntroInfo";
 import Settings from "application/components/Settings";

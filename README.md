@@ -25,13 +25,13 @@ Speaking of which, Thanks a lot Zahid, I couldn't have done this without you �
 
 # Quota & Limits
 
-By default, all users (excluding Replit staff) get a total of 50 responses.  After you've used up the fifty responses, you must [tip this Repl](https://ai.repl.page/__repl) to increase your quota.
+By default, all users (excluding Replit staff) get a total of 10 responses.  After you've used up the fifty responses, you must [tip this Repl](https://ai.repl.page/__repl) to increase your quota.
 
 One response is one question asked followed by one answer from the chatbot.  Your quota will not be measured in tokens or response length.
 
- - **100 Cycles tip 🍬** - Quota increased by 25 responses
- - **500 Cycles tip 🍕** - Quota increased by 125 responses
- - **1000 Cycles tip 🌯** - Quota increased by 250 responses
+ - **100 Cycles tip 🍬** - Quota increased by 20 responses
+ - **500 Cycles tip 🍕** - Quota increased by 100 responses
+ - **1000 Cycles tip 🌯** - Quota increased by 200 responses
 
 ---
 
