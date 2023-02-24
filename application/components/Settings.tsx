@@ -2,34 +2,56 @@ import {
   View,
   rcss,
   Text,
-  Tooltip,
   InfoIcon,
   tokens,
   LoadingIcon,
   IconButton,
+  Input,
+  Button,
+  TrashIcon,
 } from "node_modules";
 import { useAtom } from "jotai";
 import { AppSettings, tabAtom } from "application/state";
 import { useState, useEffect } from "react";
+import { useGetJSON, usePostJSON } from "application/hooks/fetch";
 
 export default function About() {
   const [, setTab] = useAtom(tabAtom);
   const [delay, setDelay] = useAtom(AppSettings.delayMsMultiplier);
-  const [usage, setUsage] = useState<{
-    total: number;
-    usage: number;
-    isAdmin: boolean;
-  }>(null);
-  const [loading, setLoading] = useState(true);
+  const { data: usage, loading, refetch } = useGetJSON("/api/getQuota");
+  const [apiKey, setApiKey] = useState("");
+  const [saveApiKey] = usePostJSON({
+    url: "/api/addApiKey",
+    body: { apiKey },
+    onComplete: (d) => {
+      if (d.success) {
+        alert(d.message);
+        refetch();
+      } else {
+        alert(d.message || "Failed to save API Key");
+      }
+    },
+    onError: (e) => {
+      alert(`Failed to save API Key${e ? ": " + e : ""}`);
+    },
+  });
+  const [removeApiKey] = usePostJSON({
+    url: "/api/removeApiKey",
+    body: {},
+    onComplete: ({ success, message }) => {
+      alert(message);
+      if (success) {
+        setApiKey("");
+        refetch();
+      }
+    },
+  });
 
   useEffect(() => {
-    fetch("/api/getQuota")
-      .then((r) => r.json())
-      .then((data) => {
-        setUsage(data);
-        setLoading(false);
-      });
-  }, []);
+    if (usage?.apiKey) {
+      setApiKey(usage.apiKey);
+    }
+  }, [usage]);
 
   return (
     <View
@@ -51,7 +73,7 @@ export default function About() {
     >
       <Text variant="subheadBig">Settings</Text>
       <View css={[rcss.flex.column, rcss.colWithGap(4)]}>
-        <Text color="dimmer">Typing Speed</Text>
+        <Text>Typing Speed</Text>
         <input
           type="range"
           min="1"
@@ -75,25 +97,25 @@ export default function About() {
       <View css={[rcss.flex.column, rcss.colWithGap(4)]}>
         {loading ? (
           <>
-            <Text color="dimmer">Usage</Text>
+            <Text>Usage</Text>
             <LoadingIcon />
           </>
         ) : (
           <>
             <View css={[rcss.flex.row, rcss.rowWithGap(4), rcss.align.center]}>
-              <Text color="dimmer">
+              <Text>
                 Usage (
-                {usage.isAdmin
+                {usage.apiKey
                   ? 0
                   : Math.round((usage.usage / usage.total) * 100)}
                 %)
               </Text>
               <IconButton
                 alt={
-                  usage.isAdmin ? (
+                  usage.apiKey ? (
                     <Text variant="small" multiline>
-                      Since you're a Replit admin, your usage will not be
-                      calculated.
+                      Since you are using your own api key, your quota will not
+                      be calculated.
                     </Text>
                   ) : (
                     <Text variant="small" multiline>
@@ -129,7 +151,7 @@ export default function About() {
                     left: 0,
                     height: "100%",
                     width: `${
-                      usage.isAdmin ? 100 : (usage.usage / usage.total) * 100
+                      usage.apiKey ? 100 : (usage.usage / usage.total) * 100
                     }%`,
                   },
                 ]}
@@ -137,6 +159,35 @@ export default function About() {
             </View>
           </>
         )}
+      </View>
+
+      <View css={[rcss.flex.column, rcss.colWithGap(4)]}>
+        <Text>API Key</Text>
+        <Text variant="small" color="dimmer" multiline>
+          Create and save your own OpenAI API key to continue usage after your
+          quota has finished.
+        </Text>
+        <View css={[rcss.flex.row, rcss.rowWithGap(4)]}>
+          <Input
+            placeholder="sk-Ax03..."
+            value={apiKey}
+            onChange={(e) => setApiKey(e.target.value)}
+          />
+          <Button text="Save" colorway="primary" onClick={saveApiKey} />
+          <Button
+            text=""
+            iconLeft={<TrashIcon />}
+            colorway="negative"
+            onClick={() => {
+              const shouldDelete = confirm(
+                "Are you sure you want to remove your API Key?"
+              );
+              if (shouldDelete) {
+                removeApiKey();
+              }
+            }}
+          />
+        </View>
       </View>
     </View>
   );

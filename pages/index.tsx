@@ -18,12 +18,17 @@ import { useRef, useState, useEffect } from "react";
 import { ChatMessage } from "application/components/ChatMessage";
 import useType from "application/hooks/useType";
 import Tab from "application/components/Tab";
-import { historyAtom, tabAtom, messageAtom } from "application/state";
+import {
+  historyAtom,
+  tabAtom,
+  messageAtom,
+} from "application/state";
 import { useAtom } from "jotai";
 import IntroInfo from "application/components/IntroInfo";
 import Settings from "application/components/Settings";
 import About from "application/components/About";
 import autosize from "autosize";
+import { useGetJSON } from "application/hooks/fetch";
 
 // random "loading" messages
 const loadingMessages = [
@@ -44,6 +49,7 @@ const Home = ({ image, username, bio, roles }) => {
     loadingMessages[Math.floor(Math.random() * loadingMessages.length)]
   );
   const [tab, setTab] = useAtom(tabAtom);
+  const { data: usage, refetch } = useGetJSON("/api/getQuota");
 
   const lastMessage = useType(history);
 
@@ -88,6 +94,7 @@ const Home = ({ image, username, bio, roles }) => {
           ({ message, isAmjad }) =>
             `${isAmjad ? "Amjad Masad" : "Human"}: ${message}`
         ),
+        apiKey: usage.apiKey || undefined,
       }),
     }).then((r) => r.json());
 
@@ -114,6 +121,8 @@ const Home = ({ image, username, bio, roles }) => {
           isAmjad: true,
         },
       ]);
+      setLoading(false);
+      updateFocusAndScroll();
     }
   };
 
@@ -125,6 +134,8 @@ const Home = ({ image, username, bio, roles }) => {
   useEffect(() => {
     updateFocusAndScroll();
   }, [history, loading, lastMessage, tab]);
+
+  useEffect(refetch, [tab]);
 
   useEffect(() => {
     if (taRef.current) {
@@ -294,6 +305,7 @@ const Home = ({ image, username, bio, roles }) => {
                   }}
                   disabled={loading}
                   ref={taRef}
+                  maxLength={500}
                 />
                 <Button
                   text="Send"

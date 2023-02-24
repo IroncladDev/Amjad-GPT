@@ -16,7 +16,7 @@ app.use(
   })
 );
 app.post(async (req: NextApiRequest, res: NextApiResponse) => {
-  const { prompt, history, bio, roles } = req.body;
+  const { prompt, history, bio, roles, apiKey } = req.body;
   if (
     typeof prompt === "string" &&
     Array.isArray(history) &&
@@ -26,7 +26,7 @@ app.post(async (req: NextApiRequest, res: NextApiResponse) => {
     if (usage >= total) {
       res.status(429).json({
         success: true,
-        answer: `You've used up your quota of ${total} responses.  If you would like to increase your quota, you can [tip this Repl](https://ai.repl.page/__repl) some [Cycles](https://replit.com/cycles).
+        answer: `You've used up your quota of ${total} responses.  If you would like to increase your quota, you can add your own OpenAI API key in settings, or [tip this Repl](https://ai.repl.page/__repl).
         
 Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostwriter).`,
       });
@@ -48,6 +48,7 @@ Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostw
           username: req.headers["x-replit-user-name"],
           history,
           roles: roles.split(",").join(", "),
+          apiKey: apiKey || null,
         }),
       }
     );
@@ -57,7 +58,7 @@ Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostw
         username: req.headers["x-replit-user-name"],
       });
 
-      if (userQuota) {
+      if (userQuota && !userQuota?.apiKey) {
         userQuota.responseCount++;
         await userQuota.save();
       } else {
@@ -71,11 +72,20 @@ Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostw
       const jsonRes = await resp.json();
       res.json(jsonRes);
     } else {
-      res.status(500).json({
-        success: false,
-        answer: null,
-        message: "Internal Server Error, Please try again",
-      });
+      try {
+        const jsonRes = await resp.json();
+        res.status(500).json({
+          success: false,
+          answer: null,
+          message: jsonRes.message,
+        });
+      } catch (e) {
+        res.status(500).json({
+          success: false,
+          answer: null,
+          message: "Internal Server Error, Please try again",
+        });
+      }
     }
   } else {
     res.status(400).json({

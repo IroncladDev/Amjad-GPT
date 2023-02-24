@@ -1,6 +1,5 @@
 import { Quota } from "server/mongo";
 import Gql from "./gql";
-import hasRole from "./auth/hasRole";
 import { NextApiRequest } from "next";
 
 const gql = new Gql("");
@@ -38,24 +37,21 @@ export default async function calculateQuota(req: NextApiRequest) {
     total += Math.floor(
       gqlReq.data.repl.topTippers
         .map((x) => x.totalCyclesTipped)
-        .reduce((a, b) => a + b) / 4
+        .reduce((a, b) => a + b) / 5
     );
   }
 
-  if (
-    hasRole(req, "admin") ||
-    req.headers["x-replit-user-name"] === process.env.REPL_OWNER
-  ) {
+  if (quota.apiKey) {
     return {
       usage: 0,
-      total: 10000,
-      isAdmin: true,
+      total: 1,
+      apiKey: quota.apiKey,
     };
   }
 
   return {
     total,
     usage,
-    isAdmin: false,
+    apiKey: null,
   };
 }
