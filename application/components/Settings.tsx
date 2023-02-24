@@ -15,7 +15,7 @@ import { AppSettings, tabAtom } from "application/state";
 import { useState, useEffect } from "react";
 import { useGetJSON, usePostJSON } from "application/hooks/fetch";
 
-export default function About() {
+export default function Settings() {
   const [, setTab] = useAtom(tabAtom);
   const [delay, setDelay] = useAtom(AppSettings.delayMsMultiplier);
   const { data: usage, loading, refetch } = useGetJSON("/api/getQuota");
@@ -49,7 +49,7 @@ export default function About() {
 
   useEffect(() => {
     if (usage?.apiKey) {
-      setApiKey(usage.apiKey);
+      setApiKey(usage?.apiKey);
     }
   }, [usage]);
 
@@ -105,14 +105,14 @@ export default function About() {
             <View css={[rcss.flex.row, rcss.rowWithGap(4), rcss.align.center]}>
               <Text>
                 Usage (
-                {usage.apiKey
+                {usage?.apiKey
                   ? 0
                   : Math.round((usage.usage / usage.total) * 100)}
                 %)
               </Text>
               <IconButton
                 alt={
-                  usage.apiKey ? (
+                  usage?.apiKey ? (
                     <Text variant="small" multiline>
                       Since you are using your own api key, your quota will not
                       be calculated.
@@ -151,7 +151,7 @@ export default function About() {
                     left: 0,
                     height: "100%",
                     width: `${
-                      usage.apiKey ? 100 : (usage.usage / usage.total) * 100
+                      usage?.apiKey ? 100 : (usage.usage / usage.total) * 100
                     }%`,
                   },
                 ]}

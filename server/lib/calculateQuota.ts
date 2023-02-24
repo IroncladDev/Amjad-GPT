@@ -13,45 +13,59 @@ export default async function calculateQuota(req: NextApiRequest) {
   const quota = await Quota.findOne({
     username,
   });
-  const gqlReq = await gql.raw({
-    query: `query repl($id: String!) {
-      repl(id: $id) {
-        ...on Repl {
-          topTippers {
-            user {
-              username
+  if (quota) {
+    const gqlReq = await gql.raw({
+      query: `query repl($id: String!) {
+        repl(id: $id) {
+          ...on Repl {
+            topTippers {
+              user {
+                username
+              }
+              totalCyclesTipped
             }
-            totalCyclesTipped
           }
         }
-      }
-    }`,
-    variables: {
-      id: process.env.REPL_ID,
-    },
-  });
-  if (quota) {
-    usage = quota.responseCount;
-  }
-  if (gqlReq?.data?.repl?.topTippers?.length) {
-    total += Math.floor(
-      gqlReq.data.repl.topTippers
-        .map((x) => x.totalCyclesTipped)
-        .reduce((a, b) => a + b) / 5
-    );
-  }
+      }`,
+      variables: {
+        id: process.env.REPL_ID,
+      },
+    });
+    if (quota) {
+      usage = quota.responseCount;
+    }
+    if (gqlReq?.data?.repl?.topTippers?.length) {
+      total += Math.floor(
+        gqlReq.data.repl.topTippers
+          .filter((x) => x.username === username)
+          .map((x) => x.totalCyclesTipped)
+          .reduce((a, b) => a + b) / 5
+      );
+    }
 
-  if (quota.apiKey) {
+    if (quota.apiKey) {
+      return {
+        usage: 0,
+        total: 1,
+        apiKey: quota.apiKey,
+      };
+    }
+
     return {
+      total,
+      usage,
+      apiKey: null,
+    };
+  } else {
+    const q = new Quota({
+      username,
+      responseCount: 0,
+    });
+    q.save();
+    return {
+      total,
       usage: 0,
-      total: 1,
-      apiKey: quota.apiKey,
+      apiKey: null,
     };
   }
-
-  return {
-    total,
-    usage,
-    apiKey: null,
-  };
 }

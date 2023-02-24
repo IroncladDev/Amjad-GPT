@@ -1,8 +1,15 @@
 import { View, rcss, Text, Button, tokens } from "node_modules";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { useEffect } from "react";
 
 export default function Login() {
   const authorize = () => {
+    if (window.location !== window.parent.location) {
+      alert(
+        "You can't use this site unless it's opened in a new tab. Please visit https://ai.repl.page."
+      );
+      return;
+    }
     window.addEventListener("message", authComplete);
 
     var h = 500;
@@ -27,6 +34,15 @@ export default function Login() {
       authWindow.close();
     }
   };
+
+  useEffect(() => {
+    if (window.location !== window.parent.location) {
+      const shouldOpen = confirm("Please open this page in a new tab to use");
+      if (shouldOpen) {
+        window.open("https://ai.repl.page");
+      }
+    }
+  }, []);
 
   return (
     <View css={[rcss.flex.column, rcss.center, rcss.p(16), rcss.flex.grow(1)]}>

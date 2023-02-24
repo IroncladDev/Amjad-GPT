@@ -25,7 +25,7 @@ Speaking of which, Thanks a lot Zahid, I couldn't have done this without you ðŸ™
 
 # Quota & Limits
 
-By default, all users (excluding Replit staff) get a total of 10 responses.  After you've used up the fifty responses, you must [tip this Repl](https://ai.repl.page/__repl) to increase your quota.
+By default, all users get a total of 10 responses.  After you've used up the fifty responses, you must use your own OpenAI API key or [tip this Repl](https://ai.repl.page/__repl) to increase your quota.
 
 One response is one question asked followed by one answer from the chatbot.  Your quota will not be measured in tokens or response length.
 

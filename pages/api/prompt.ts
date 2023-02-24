@@ -58,8 +58,10 @@ Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostw
         username: req.headers["x-replit-user-name"],
       });
 
-      if (userQuota && !userQuota?.apiKey) {
-        userQuota.responseCount++;
+      if (userQuota) {
+        if (!userQuota.apiKey) {
+          userQuota.responseCount++;
+        }
         await userQuota.save();
       } else {
         const newUserQuota = new Quota({
