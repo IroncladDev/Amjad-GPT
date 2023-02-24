@@ -46,7 +46,7 @@ Speaking of which, Thanks a lot Zahid, I couldn't have done this without you ðŸ™
       </Text>
       <Text variant="subheadBig">Quota & Limits</Text>
       <Text color="dimmer" multiline>
-        <MarkdownWrapper>{`All users get a total of 10 responses.  After that, you must add your own OpenAI API key or [tip this Repl](https://ai.repl.page/__repl) to increase your quota.
+        <MarkdownWrapper>{`By default, all users get a total of 10 responses.  After you've used up the ten responses, you must add your own OpenAI API key (Open the settings tab) or [tip this Repl](https://ai.repl.page/__repl) to increase your quota.
 
 One response is **one question asked** followed by **one answer** from the chatbot.  Your quota will not be measured in tokens or response length.
 
