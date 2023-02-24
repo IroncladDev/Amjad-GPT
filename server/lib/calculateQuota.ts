@@ -28,18 +28,17 @@ export default async function calculateQuota(req: NextApiRequest) {
         }
       }`,
       variables: {
-        id: process.env.REPL_ID,
+        id: 'ee1f41b5-62e9-4684-a339-d7830d194ad9',
       },
     });
     if (quota) {
       usage = quota.responseCount;
     }
     if (gqlReq?.data?.repl?.topTippers?.length) {
-      const tips = gqlReq.data.repl.topTippers
-        .filter((x) => x.username === username)
-        .map((x) => x.totalCyclesTipped);
-      if (tips.length > 0) {
-        total += Math.floor(tips.reduce((a, b) => a + b) / 5);
+      const tips = gqlReq.data.repl.topTippers;
+      const tipsByUser = tips.find(x => x.user.username === req.headers['x-replit-user-name']);
+      if (tipsByUser) {
+        total += Math.floor(tipsByUser.totalCyclesTipped / 5)
       }
     }
 
