@@ -35,12 +35,12 @@ export default async function calculateQuota(req: NextApiRequest) {
       usage = quota.responseCount;
     }
     if (gqlReq?.data?.repl?.topTippers?.length) {
-      total += Math.floor(
-        gqlReq.data.repl.topTippers
-          .filter((x) => x.username === username)
-          .map((x) => x.totalCyclesTipped)
-          .reduce((a, b) => a + b) / 5
-      );
+      const tips = gqlReq.data.repl.topTippers
+        .filter((x) => x.username === username)
+        .map((x) => x.totalCyclesTipped);
+      if (tips.length > 0) {
+        total += Math.floor(tips.reduce((a, b) => a + b) / 5);
+      }
     }
 
     if (quota.apiKey) {
