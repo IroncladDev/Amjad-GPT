@@ -28,7 +28,7 @@ export default async function calculateQuota(req: NextApiRequest) {
         }
       }`,
       variables: {
-        id: 'ee1f41b5-62e9-4684-a339-d7830d194ad9',
+        id: process.env.REPL_ID,
       },
     });
     if (quota) {
@@ -36,9 +36,9 @@ export default async function calculateQuota(req: NextApiRequest) {
     }
     if (gqlReq?.data?.repl?.topTippers?.length) {
       const tips = gqlReq.data.repl.topTippers;
-      const tipsByUser = tips.find(x => x.user.username === req.headers['x-replit-user-name']);
+      const tipsByUser = tips.find((x) => x.user.username === username);
       if (tipsByUser) {
-        total += Math.floor(tipsByUser.totalCyclesTipped / 5)
+        total += Math.floor(tipsByUser.totalCyclesTipped / 5);
       }
     }
 

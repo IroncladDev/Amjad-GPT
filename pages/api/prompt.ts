@@ -4,7 +4,7 @@ import isReplAuthed from "../../server/lib/auth/isReplAuthed";
 import createRateLimiter from "../../server/lib/auth/rateLimiter";
 import { Quota } from "server/mongo";
 import calculateQuota from "server/lib/calculateQuota";
-import fetch from "node-fetch";
+import generateResponse from "server/lib/generateResponse";
 
 const app = nc();
 
@@ -16,7 +16,11 @@ app.use(
   })
 );
 app.post(async (req: NextApiRequest, res: NextApiResponse) => {
-  const { prompt, history, bio, roles, apiKey } = req.body;
+  const { prompt, history, apiKey } = req.body;
+  const username = req.headers["x-replit-user-name"];
+  const bio = req.headers["x-replit-user-bio"];
+  const roles = String(req.headers["x-replit-user-roles"]);
+
   if (
     typeof prompt === "string" &&
     Array.isArray(history) &&
@@ -33,29 +37,25 @@ Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostw
       return;
     }
 
-    const resp = await fetch(
-      "https://amjad-gpt-api.replitironclad.repl.co/ask",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          accept: "application/json",
-        },
-        body: JSON.stringify({
-          question: prompt,
-          secret: process.env.API_SECRET,
-          bio,
-          username: req.headers["x-replit-user-name"],
-          history,
-          roles: roles.split(",").join(", "),
-          apiKey: apiKey || null,
-        }),
-      }
-    );
+    const userContext =
+      `The human speaking to you has a username of ${username}. ` +
+      (bio ? `The human describes themself with "${bio}". ` : "") +
+      (roles
+        ? `The human has the following roles on their Replit account: ${roles
+            .split(",")
+            .join(", ")}`
+        : "");
 
-    if (resp.status === 200) {
+    const resp = await generateResponse({
+      history,
+      question: prompt,
+      apiKey,
+      userContext,
+    });
+
+    if (typeof resp === "string") {
       const userQuota = await Quota.findOne({
-        username: req.headers["x-replit-user-name"],
+        username,
       });
 
       if (userQuota) {
@@ -65,29 +65,22 @@ Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostw
         await userQuota.save();
       } else {
         const newUserQuota = new Quota({
-          username: req.headers["x-replit-user-name"],
+          username,
           responseCount: 1,
         });
         await newUserQuota.save();
       }
 
-      const jsonRes = await resp.json();
-      res.json(jsonRes);
+      res.status(200).json({
+        success: true,
+        answer: resp,
+      });
     } else {
-      try {
-        const jsonRes = await resp.json();
-        res.status(500).json({
-          success: false,
-          answer: null,
-          message: jsonRes.message,
-        });
-      } catch (e) {
-        res.status(500).json({
-          success: false,
-          answer: null,
-          message: "Internal Server Error, Please try again",
-        });
-      }
+      res.status(500).json({
+        success: false,
+        answer: null,
+        message: "Internal Server Error, Please try again",
+      });
     }
   } else {
     res.status(400).json({

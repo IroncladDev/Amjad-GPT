@@ -37,7 +37,7 @@ const loadingMessages = [
   "Uh...",
 ];
 
-const Home = ({ image, username, bio, roles }) => {
+const Home = ({ image, username }) => {
   const [value, setValue] = useAtom(messageAtom);
   const [loading, setLoading] = useState(false);
   const [history, setHistory] = useAtom(historyAtom);
@@ -83,9 +83,7 @@ const Home = ({ image, username, bio, roles }) => {
         accept: "application/json",
       },
       body: JSON.stringify({
-        bio,
         prompt: v,
-        roles,
         history: historyQueryParam.map(
           ({ message, isAmjad }) =>
             `${isAmjad ? "Amjad Masad" : "Human"}: ${message}`
@@ -333,8 +331,6 @@ export async function getServerSideProps({
       props: {
         image: req.headers["x-replit-user-profile-image"],
         username: req.headers["x-replit-user-name"],
-        bio: req.headers["x-replit-user-bio"],
-        roles: req.headers["x-replit-user-roles"],
       },
     };
   } else {
