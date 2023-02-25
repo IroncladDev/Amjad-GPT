@@ -20,8 +20,7 @@ All of this data was compiled into a `.index` file.  [Zahid Khawaja](https://twi
 
 Speaking of which, Thanks a lot Zahid, I couldn't have done this without you 🙏
 
- - [Model Source Code](https://github.com/Conner1115/Amjad-GPT-Langchain)
- - [Frontend Source Code](https://github.com/Conner1115/Amjad-GPT)
+[Source Code](https://github.com/Conner1115/Amjad-GPT)
 
 # Quota & Limits
 
@@ -32,6 +31,15 @@ One response is one question asked followed by one answer from the chatbot.  You
  - **100 Cycles tip 🍬** - Quota increased by 20 responses
  - **500 Cycles tip 🍕** - Quota increased by 100 responses
  - **1000 Cycles tip 🌯** - Quota increased by 200 responses
+
+# Self-Hosting Instructions
+
+1. Set up the following environment variables:
+   - `DEFALT_QUOTA_LIMIT` - number (set to ten in this repl)
+   - `MONGO_URI` - a MongoDB database URI
+   - `OPENAI_API_KEY` - An OpenAI API key
+2. Run `yarn dev` or `yarn build && yarn start`
+3. Done!
 
 ---
 
