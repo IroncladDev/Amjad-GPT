@@ -1,5 +1,5 @@
-#run = "yarn start || yarn build && yarn start"
-run = "yarn dev"
+run = "yarn start || yarn build && yarn start"
+#run = "yarn dev"
 
 hidden = [".config", "package-lock.json"]
 
