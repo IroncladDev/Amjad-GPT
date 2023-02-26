@@ -1,13 +1,19 @@
-import { View, rcss, Text, Button, tokens } from "node_modules";
+import {
+  View,
+  rcss,
+  Text,
+  Button,
+  tokens,
+  ExternalLinkIcon,
+} from "node_modules";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Login() {
+  const [inIframe, setInIframe] = useState(false);
   const authorize = () => {
-    if (window.location !== window.parent.location) {
-      alert(
-        "You can't use this site unless it's opened in a new tab. Please visit https://ai.repl.page."
-      );
+    if (inIframe) {
+      window.open("https://ai.repl.page", "_blank");
       return;
     }
     window.addEventListener("message", authComplete);
@@ -37,10 +43,7 @@ export default function Login() {
 
   useEffect(() => {
     if (window.location !== window.parent.location) {
-      const shouldOpen = confirm("Please open this page in a new tab to use");
-      if (shouldOpen) {
-        window.open("https://ai.repl.page");
-      }
+      setInIframe(true);
     }
   }, []);
 
@@ -59,20 +62,27 @@ export default function Login() {
         ]}
       >
         <Text variant="headerDefault">Log In</Text>
-        <Text color="dimmer" multiline>
-          Please log in with{" "}
-          <a href="https://replit.com" target="_blank" rel="noreferrer">
-            Replit
-          </a>{" "}
-          to start using this application
-        </Text>
+        {inIframe ? (
+          <Text color="dimmer" multiline>
+            Please open in a new tab to use
+          </Text>
+        ) : (
+          <Text color="dimmer" multiline>
+            Please log in with{" "}
+            <a href="https://replit.com" target="_blank" rel="noreferrer">
+              Replit
+            </a>{" "}
+            to start using this application
+          </Text>
+        )}
         <img
           src="/icon.png"
           style={{ display: "block", width: "100%", borderRadius: 8 }}
           alt="Illustration of the Amjad GPT project"
         />
         <Button
-          text="Authorize Replit"
+          text={inIframe ? "Open in new tab" : "Authorize Replit"}
+          iconRight={inIframe ? <ExternalLinkIcon /> : null}
           colorway="primary"
           onClick={authorize}
         />
