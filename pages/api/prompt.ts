@@ -2,7 +2,7 @@ import nc from "next-connect";
 import { NextApiRequest, NextApiResponse } from "next";
 import isReplAuthed from "../../server/lib/auth/isReplAuthed";
 import createRateLimiter from "../../server/lib/auth/rateLimiter";
-import { Quota } from "server/mongo";
+import { Quota, Response } from "server/mongo";
 import calculateQuota from "server/lib/calculateQuota";
 import generateResponse from "server/lib/generateResponse";
 
@@ -58,6 +58,13 @@ Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostw
         username,
       });
 
+      const PromptLog = new Response({
+        prompt,
+        response: resp,
+        username,
+        apiKey: apiKey || null,
+      });
+
       if (userQuota) {
         if (!userQuota.apiKey) {
           userQuota.responseCount++;
@@ -70,6 +77,7 @@ Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostw
         });
         await newUserQuota.save();
       }
+      await PromptLog.save();
 
       res.status(200).json({
         success: true,

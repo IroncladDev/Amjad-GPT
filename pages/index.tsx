@@ -88,7 +88,7 @@ const Home = ({ image, username }) => {
           ({ message, isAmjad }) =>
             `${isAmjad ? "Amjad Masad" : "Human"}: ${message}`
         ),
-        apiKey: usage.apiKey || undefined,
+        apiKey: usage?.apiKey || undefined,
       }),
     }).then((r) => r.json());
 
