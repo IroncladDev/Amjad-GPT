@@ -52,6 +52,10 @@ const generateResponse = async ({
   apiKey?: string;
   userContext?: string;
 }) => {
+  if (question.length > 500) {
+    return "Your question is too long.  Please reword it to be under 500 characters.";
+  }
+
   try {
     const model = new OpenAI({
       temperature: 0,

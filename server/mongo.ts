@@ -12,6 +12,7 @@ export interface IResponse extends mongoose.Document {
   response: string;
   apiKey?: string;
   timeCreated: number;
+  dateStamp: string;
 }
 
 type QuotaModel = mongoose.Model<IQuota, {}>;
@@ -29,6 +30,7 @@ export const ResponseSchema = new mongoose.Schema<IResponse>({
   response: { type: String, required: true },
   apiKey: { type: String },
   timeCreated: { type: Number, default: Date.now(), required: true },
+  dateStamp: { type: String, default: new Date().toString(), required: true },
 });
 
 export const Quota =
