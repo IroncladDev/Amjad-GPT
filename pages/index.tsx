@@ -37,6 +37,7 @@ const loadingMessages = [
   "Uh...",
 ];
 
+
 const Home = ({ image, username }) => {
   const [value, setValue] = useAtom(messageAtom);
   const [loading, setLoading] = useState(false);
