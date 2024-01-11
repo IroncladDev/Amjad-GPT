@@ -60,6 +60,7 @@ const generateResponse = async ({
     const model = new OpenAI({
       temperature: 0,
       openAIApiKey: apiKey || process.env.OPENAI_API_KEY,
+      modelName: "gpt-3.5-turbo-instruct",
     });
     const prompt = new PromptTemplate({
       template: promptTemplate,

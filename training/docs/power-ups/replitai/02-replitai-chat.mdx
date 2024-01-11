@@ -1,0 +1,113 @@
+import InlineMessage from '../../../src/components/InlineMessage.tsx'
+import ChatContainer from '../../../src/components/ChatContainer.tsx'
+import Loom from '../../../src/components/Loom'
+
+# Replit AI Chat
+Replit's Replit AI Chat is an chat-based AI assistant that enables users to quickly get answers to their coding-related questions directly in the Workspace, without ever leaving the page.
+
+<Loom id="8f403502a3f3485ea0ae3faea34d24c5"/>
+
+# Replit AI Debugger
+The Replit AI Debugger is an AI feature of Replit's Replit AI that helps users debug their code by identifying errors. Additionally, it provides step-by-step guidance and hints to help users figure out solutions to their coding problems.
+
+<Loom id="b05ad272f6b04098872dc09bff1faae6"/>
+
+## Tips & Tricks
+Getting an AI model to generate the correct results can be challenging. Even though Replit AI has context of some files in your repl, you have to think a little deeper about Replit AI's perspective and how it understands human language.
+
+### 1. Make your questions detailed
+Write prompts in fully-formed sentences, and include as much detail and context as you can.
+
+If Replit AI is provided with little information, it has a hard time giving you the results you want
+<ChatContainer avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png">
+  <InlineMessage message="make a discord bot" avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png" username="IroncladDev"/>
+  <InlineMessage message="Making a discord bot requires the use of a Discord API library such as discord.js or discord.py. First you need to..." isGhostWriter/>
+</ChatContainer>
+
+Providing lots of information yields much better results.
+<ChatContainer avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png">
+  <InlineMessage message="Make me a discord bot in discord.js that sends a user a direct message when they join." avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png" username="IroncladDev"/>
+  <InlineMessage message="```js
+const Discord = require('discord.js');
+const client = new Discord.Client();
+‎
+client.on('guildMemberAdd', member => {
+...
+```" isGhostWriter/>
+</ChatContainer>
+
+### 2. Ask follow-up questions
+You can chat with Replit AI like a real pair programmer. Try asking follow-up questions by mentioning a previous message.
+
+<ChatContainer avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png">
+  <InlineMessage message="Make me an algorithm that sorts an array in javascript" avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png" username="IroncladDev"/>
+  <InlineMessage message="```js
+function sort(arr) {
+‎
+  for (let i = 0; i < arr.length; i++) { 
+‎
+  ‎  let min = i; 
+‎
+  ‎  ...
+```" isGhostWriter/>
+  <InlineMessage message="Use the javascript array .sort function and sort an array of numbers by ascending" avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png" username="IroncladDev"/>
+  <InlineMessage message="```js
+let numbers = [6, 2, 8, 1];
+// Sort the array in ascending order
+numbers.sort((a, b) => a - b);
+‎
+console.log(numbers); // Output: [1, 2, 6, 8]
+```" isGhostWriter/>
+</ChatContainer>
+
+### 3. Modify Replit AI's Behavior
+Telling Replit AI to act like a programmer in a different field could yield better results.  
+
+<ChatContainer avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png">
+  <InlineMessage message="I want you to act as a UX/UI developer. I will provide some details about the design of an app, website or other digital product, and it will be your job to come up with creative ways to improve its user experience" avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png" username="IroncladDev"/>
+  <InlineMessage message="Got it! As a UX/UI developer, I'm here to help you make your digital product user-friendly and visually appealing. From the details you provided, my first suggestion would be to ensure that the user interface is intuitive and easy to navigate..." isGhostWriter/>
+  <InlineMessage message="Design me a product landing page in HTML. The product should be a database hosting provider named 'Daddybase'. The accent color should be blue and the headline on the landing page should be 'The best way to store dad jokes'" avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png" username="IroncladDev"/>
+  <InlineMessage message="```html
+<html>
+‎
+  ‎<head>
+‎
+  ‎  <title>Daddybase - Database hosting</title>
+‎
+  ‎  ...
+```" isGhostWriter/>
+</ChatContainer>
+
+### 4. Explain and reference code
+Replit AI Chat can be used to explain files in your code.  Replit AI tries to be smart and include files you interact with. In this example, we have a simple rickroll website as our HTML.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Never gonna give you up</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <script>location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"</script>
+  </body>
+</html>
+```
+
+<ChatContainer avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png">
+  <InlineMessage message="What does the \<script\> tag do in my index.html file?" avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png" username="IroncladDev"/>
+  <InlineMessage message="The \<script\> tag in your index.html file is used to define a script, which is a set of instructions that can be executed by a web browser. In this case, the script redirects the browser to the https://www.youtube.com/watch?v=dQw4w9WgXcQ URL." isGhostWriter/>
+  <InlineMessage message="What is the title in my index.html file?" avatar="https://storage.googleapis.com/replit/images/1662665479969_1173707b428ef17419de4940af146e6a.png" username="IroncladDev"/>
+  <InlineMessage message="The title in your index.html file is 'Never gonna give you up'. This is defined between the <title> and </title> tags on line 5." isGhostWriter/>
+</ChatContainer>
+
+## Limitations
+Some of the limitations of Replit AI Chat include:
+ - No internet access of knowledge of recent events
+ - Occasionally hallucinates and gets line numbers incorrectly
+ - Does not know _everything_ about your Repl
+ - Cannot interact with your Repl (create files, etc)
+ - Tries to avoid talking about things that are not related to coding.

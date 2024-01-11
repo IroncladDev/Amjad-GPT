@@ -8,11 +8,11 @@ With Custom Themes, you can make Replit truly yours by customizing much of the U
 
 Navigate to your [account page](https://replit.com/account) and scroll down to the **Themes** section Create a new theme, fill out the title, select a color scheme, optionally add a description, and hit **Create Theme**.
 
-![creating a theme](https://replit-docs-images.util.repl.co/themes/creating-theme.png)
+![creating a theme](https://docimg.replit.com/themes/creating-theme.png)
 
 After creating your theme, you will be redirected to the Themes Editor. Let's first look at the **Global Theme** section and how each color option applies.
 
-![global-theme](https://replit-docs-images.util.repl.co/themes/global-theme.png)
+![global-theme](https://docimg.replit.com/themes/global-theme.png)
 
 **Background** is the most noticeable color and the easiest one to get right. Notice how the entire page changes color as you edit it. Let's make it a very dark bluish color for this theme.
 
@@ -26,6 +26,6 @@ After creating your theme, you will be redirected to the Themes Editor. Let's fi
 
 **Negative** colors appear when there is an error or if you are about to perform a dangerous action. A nice orange color will do here.
 
-![global theme](https://replit-docs-images.util.repl.co/themes/global-theme-preview.png)
+![global theme](https://docimg.replit.com/themes/global-theme-preview.png)
 
 Finally, hit **Apply Theme** to start using your new theme. If you want to go deeper and style syntax highlighting for your code, let's move on to the [next step](syntax-highlighting)

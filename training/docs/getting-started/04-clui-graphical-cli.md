@@ -1,79 +1,93 @@
+import Loom from '../../src/components/Loom'
+
 # CLUI, the Graphical CLI
 
-Replit has created a text-based interface to interact with various aspects of your account. This page serves as documentation of the various capabilities of CLUI.
+Command Line User Interface, often referred to as the CLUI is an interactive command bar from which you can perform a variety of actions. There are three variations of the CLUI located across Replit: Account, Shortcuts, and Workspace.
 
-## Accessing CLUI
+## Account
 
-Navigate to the [CLUI page](https://replit.com/~/cli) to access the graphical prompt CLI
+The Account CLUI allows you to view and manage your account & teams, view warnings you've been issued, restore deleted Repls, and more. Get started by navigating to the [CLUI page](https://replit.com/~/cli). Type in the input to search for a command, and hit Enter to execute it.
 
-![clui](https://replit-docs-images.util.repl.co/images/animations/nav-to-clui.gif)
+![Account CLUI](https://docimg.replit.com/images/getting-started/clui-account.png)
 
-The prompt will display in-line information about the commands which can be run.
-
-## Walkthrough
-
-This video walks you through how to access and use the CLUI.
-
-<div style={{
-  position: 'relative',
-  paddingBottom: '56.25%',
-  height: '0'
-}}>
-  <iframe src="https://www.loom.com/embed/a728d471bcaa4bf9861a4ce96ce62b51" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%'
-  }}></iframe>
-</div>
-
-<br/>
-
-## Command Reference
+### Command Reference
 
 <details>
-  <summary><b>account</b>: Manage your account</summary>
+  <summary><strong>account</strong>: Manage your account</summary>
 
-`account view-warns` <br></br>
+#### `view-warns`
+
 View warnings you have been issued.
 
-`account change-username` <br></br>
+#### `change-username`
+
 Change your username (this can only be done once).
 
 </details>
 
 <details>
-  <summary><b>trash</b>: List and restore deleted repls</summary>
+  <summary><strong>trash</strong>: List and restore deleted repls</summary>
 
-`trash restore --title $title` <br></br>
+#### `restore <title>`
+
 Restore a deleted repl by its title. If multiple repls exist with the same name, the most recently deleted repl will be restored.
 
-`trash view` <br></br>
+#### `view`
+
 View your most recently deleted repls.
 
 </details>
 
 <details>
-  <summary><b>team</b>: View and manage your teams</summary>
+  <summary><strong>team</strong>: View and manage your teams</summary>
 
-`view` <br></br>>
-View the members of your team.
+#### `view`
 
-`fork-repl-to-project` <br></br>
+View the members of a team you are in by its username.
 
-> Forks an existing Repl to create a Team Project
+#### `fork-repl-to-project`
+
+Forks an existing Repl to create a Team Project.
 
 </details>
 
 <details>
-  <summary><b>clear</b>: Clears the screen</summary>
+  <summary><strong>clear</strong>: Clears the screen</summary>
 
-`clear` <br></br>
-Clears screen.
+#### `clear`
+
+Clears the screen of all past commands you've executed.
 
 </details>
 
-## Further Reading
+## Shortcuts
 
-Check out our [blog post](https://blog.replit.com/clui) for a discussion on building CLUI.
+The Shortcuts version of the CLUI can be accessed from the top navigation bar on most Replit pages. Use the keyboard command **CMD/CTRL + K** to open it up at any time or click on it.
+
+![Shortcuts CLUI](https://docimg.replit.com/images/getting-started/shortcuts-clui.png)
+
+### Command Reference
+
+#### Search
+
+Allows you to search Replit for Repls, Templates, Code, People, and more.
+
+#### New
+
+Create a new Repl.
+
+#### My Repls
+
+Browse through and easily navigate to your Repls.
+
+#### My Code
+
+Search through the code in all of your Repls.
+
+## Workspace
+
+The Workspace CLUI allows you to quickly perform operations, access Tools, find files, or search for terms in your code.
+
+You can access the Workspace CLUI with the keyboard shortcut **CMD/CTRL + K** at any time in the Workspace. Alternatively, you can click on the Search icon in the upper-left corner of the page.
+
+![Workspace CLUI](https://docimg.replit.com/images/getting-started/ws-clui.png)

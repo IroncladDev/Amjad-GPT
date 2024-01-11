@@ -1,24 +1,28 @@
-# Managing your repls
+import Loom from '../../src/components/Loom'
 
-To manage and keep track of all your repls, head to your Repls Dashboard. You can find it on your account by clicking on the 'My Repls' tab on the left-hand side.
+# Managing your Repls
 
-Repls are listed in order of when they were created, with the most recent first. Each repl has its own three-dot menu at the far right. Bringing up this menu will allow you to:
+To manage and keep track of all your Repls, head to your Repls Dashboard. You can find it on your account by clicking on the "My Repls" tab on the left-hand side.
 
-- Edit the repl (change its name and description)
+Repls are listed in order of when they were created, with the most recent first. Each Repl has its own three-dot menu at the far right. Bringing up this menu will allow you to:
+
+- Edit the Repl (change its name and description)
 - View its history
-- Fork the repl
-- Move the repl
+- Fork the Repl
+- Move the Repl
 - Pin it to your profile
-- Delete the repl
+- Delete the Repl
 - Toggle privacy settings (subscribers only)
 
-## Public/Private Repls
+<Loom id="65778d283cbc46d4b63013805cd04f96"/>
 
-By default all Repls created are 'public'. This means that anyone on Replit may discover and view the source code for these Repls. Users will be able to publish these Repls to the community and others will be able to view on comment on the Repl.
+## Public vs Private Repls
 
-Users with Hacker plan subscriptions or cycles may elect to make their Repl 'private'. This means that only the creator (and any one they explicitly invite) to the Repl may view the source code. This also means that the Repl will not be available to share to the community.
+All Repls created are 'public' by default, meaning anyone on Replit may discover and view the source code. We think that [open-source software](https://en.wikipedia.org/wiki/Open-source_software) is a great thing. It allows users to fork, remix, and republish these Repls to the [community](https://replit.com/community/all), where others can engage and comment.
 
-Note: Private Repls will be inaccessible to other users on Replit, however, if the Repl is hosted (eg: HTML, Node.js, Django) the output of those Repls may still be accessible on the internet. If you are hosting sensitive information please use a non-hosted Repl (eg: Nix) to ensure complete privacy.
+Users with a [Replit Core membership](https://replit.com/pricing) (previously Hacker or Pro) can make their Repls 'private'. This means that only the creator and anyone they explicitly invite can view the source code.
+
+Note that Private Repls will be inaccessible to other users on Replit if the Repl is hosted, such as HTML, Node.js, or Django Repls. However, the output of those Repls may still be accessible on the internet. If you are hosting sensitive information, we reccomend using a non-hosted Repl to ensure privacy.
 
 ## Starring Repls
 
@@ -28,35 +32,35 @@ You can "star" a Repl to mark it as a favorite. This means you can then easily f
 
 ### Basic Search
 
-To search your repls, click on the search bar. You will be presented with the options "+ New" and "Search". Click "Search" and start typing keywords. This will filter repls whose title or language match any of the keywords (separated by spaces).
+To search your Repls, click on the search bar. You will be presented with the options "+ New" and "Search". Click "Search" and start typing keywords. This will filter Repls whose title or language match any of the keywords (separated by spaces).
 
 Repls only need to match one of the keywords in order to be included in the results.
 
 Example:
 
-**Search Query:** `draft repl python3`
+**Search Query:** `draft Repl python3`
 
 **Returns:**
-All repls that satisfy one or more of the following conditions:
+All Repls that satisfy one or more of the following conditions:
 
 - has `draft` in the title
-- has `repl` in the title
-- is a `python3` repl
+- has `Repl` in the title
+- is a `python3` Repl
 
 ### Search by Language
 
-You can search for repls in a specific language by using the `language:` filter.
+You can search for Repls in a specific language by using the `language:` filter.
 Typing in `language:` followed by the language you want to filter by will prompt
 you with language suggestions.
 
 Your search term will need to be the language name we use internally, which is why
 we suggest selecting from the provided list. For example, to search for all C++11
-languages, you would search `language:cpp11`. To search for HTML, CSS, JS repls,
+languages, you would search `language:cpp11`. To search for HTML, CSS, JS Repls,
 you would search `language:html`. This filter is case sensitive.
 
 ### Search by Title
 
-Since plain searches include results with matching languages, you can search within repl titles only using the `title:` filter. Your search term may not include spaces.
+Since plain searches include results with matching languages, you can search within Repl titles only using the `title:` filter. Your search term may not include spaces.
 This filter is case insensitive.
 
 Example:

@@ -13,14 +13,14 @@ A Moderator will send you a warning when you violate the [Community Standards](h
 
 Yes. Revise your Repl to abide by the [Community Standards](https://replit.com/@moderation/Welcome), then republish.
 
-### How can I appeal a Moderation decision?
-
-Contact the mods if you believe they took unfair action towards you. Appeal at the [Moderator Contact Website](https://contact.moderation.repl.co/) or reach out to [Support](https://replit.com/support) for site bans.
-
 ### What happens when I'm banned from the Community?
 
-When banned from the community, you cannot create posts, comments, share Repls, or participate in [Bounties](https://replit.com/bounties). However, you can still use the online IDE for features unrelated to community activity. If ready to rejoin and abide by the guidelines, contact us at the [Moderator Contact Website](https://contact.moderation.repl.co/).
+When banned from the community, you cannot create posts, comments, share Repls, or participate in [Bounties](https://replit.com/bounties). However, you can still use the online IDE for features unrelated to community activity.
 
 ### What happens when I'm banned from Replit?
 
-A ban from Replit means you cannot log into your account and all Repls will have been deleted. This often occurs for violating the [Terms of Service](https://replit.com/site/terms). Appeal your ban by making a ticket at https://replit.com/support if you are ready to abide by the Terms of Service.
+A ban from Replit means you cannot log into your account and all Repls will have been deleted. This often occurs for violating the [Terms of Service](https://replit.com/site/terms).
+
+### How can I appeal a Moderation decision?
+
+Contact the mods if you believe they took unfair action towards you. Send an email to [appeals@replit.com](mailto:appeals@replit.com) with your Replit username, a description of the action that you are appealing, and your reasons for the appeal.

@@ -167,7 +167,7 @@ fahrenheit = float(string.atoi(i)) # 'atoi' gets highlighted
 
   This color applies to types in strongly typed languages such as Java, TypeScript, etc.
 
-  ### Typescript
+  ### TypeScript
 
   ```typescript
   const name: string = "John"; // 'string' gets highlighted

@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Replit Database is a simple, user-friendly key-value store inside of every Repl. No configuration is required; you can get started right away!
 
-Read on for answers to Database FAQs, or jump right in and follow [this basic phone book tutorial](/tutorials/using-the-replit-database) where you'll learn how to perform the fundamental "CRUD" (Create, Read, Update, Delete) operations with Replit Database.
+Read on for answers to Database FAQs, or jump right in and follow [this basic phone book tutorial](/tutorials/python/using-the-replit-database) operations with Replit Database.
 
 Here's a short video on how to use the Replit database, or read the text explanation below.
 
@@ -253,7 +253,7 @@ Replit provides official clients. Use one of these clients if your Repl is in on
 
 When you click on the Database icon in the sidebar, you'll see some instructions. If your Repl is in a language that has an official Database client, you can quickly import it and start using Database by clicking on the "Insert" buttons.
 
-If your language does not have a client, we provide some curl examples. They are found below, and are a useful reference if you wish to write your own Database client.
+If your language does not have a client, we provide some usage examples below. They are found below, and are a useful reference if you wish to write your own Database client.
 
 **Set**
 
@@ -321,14 +321,16 @@ console.log(process.env.REPLIT_DB_URL)
 
 The value of `REPLIT_DB_URL` changes from time to time, so we recommend that you don't copy it elsewhere. Subsequent reads by the same process will see the same value. We will restart your Repl if we need to change it after it has been read.
 
+Note: `REPLIT_DB_URL` is not available in Deployments. Instead, the value of the URL is stored in `/tmp/replitdb`. If you are writing a client for Replit Database, read the value from `/tmp/replitdb` first, and fall back to the environment variable if that file does not exist.
+
 ### What limits does Database have?
 
 The limits are currently:
 
-- 50 MB per database (sum of keys and values)
+- 50 MiB per database (sum of keys and values)
 - 5,000 keys per database
-- 1000 bytes per key
-- 5 MB per value
+- 1024 bytes per key
+- 5 MiB per value
 
 There are rate limits that apply to all operations. You will receive an HTTP 429 if you exceed them. We recommend implementing an exponential backoff and retry to handle this case.
 

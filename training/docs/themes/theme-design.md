@@ -13,27 +13,27 @@ Let's take a look at some of the most popular VS Code themes and spot some diffe
 ### 1. Atom One Dark
 
 Atom One Dark is one of the most popular themes of all time. Originally made for Atom code editor, this theme has made its way across many different code editors. Take a look at the vibrant color palette used here and how well the colors contrast against each other.
-![atom one dark theme](https://replit-docs-images.util.repl.co/themes/themes/atom-one-dark.png)
+![atom one dark theme](https://docimg.replit.com/themes/themes/atom-one-dark.png)
 
 ### 2. Nord
 
 The Nord theme is a beautiful, minimalistic theme that uses blue, green, and white hues for syntax highlighting. While it may not use as many colors as the Atom One Dark theme, each color is carefully chosen to complement the others and the foreground.
-![nord theme](https://replit-docs-images.util.repl.co/themes/themes/nord.png)
+![nord theme](https://docimg.replit.com/themes/themes/nord.png)
 
 ### 3. Tokyo Night (Storm)
 
 In Tokyo Night (Storm), the contrast between the foreground text and the background is greater than in the previous two themes. It uses hues of red and purple to color the code.
-![tokyo night storm theme](https://replit-docs-images.util.repl.co/themes/themes/tokyo-night-storm.png)
+![tokyo night storm theme](https://docimg.replit.com/themes/themes/tokyo-night-storm.png)
 
 ### 4. Night Owl
 
 Of all the themes, Night Owl has the highest contrast between the code and the background. Similar to Atom One Dark, this color palette uses a wide range of colors rather than just one.
-![night owl theme](https://replit-docs-images.util.repl.co/themes/themes/night-owl.png)
+![night owl theme](https://docimg.replit.com/themes/themes/night-owl.png)
 
 ### 5. Bluloco Light
 
 Bluloco Light has a playful design and uses a wide range of colors in its syntax highlighting palette. In light mode, the foreground colors are brighter to improve visibility against the background.
-![bluloco light theme](https://replit-docs-images.util.repl.co/themes/themes/bluloco-light.png)
+![bluloco light theme](https://docimg.replit.com/themes/themes/bluloco-light.png)
 
 ## Background and Foreground
 
@@ -44,21 +44,21 @@ To choose a background color for your theme, it's best to pick a color that is c
 
 Here is a gif of some examples of backgrounds that should not be used for theming:
 
-![bad themes gif](https://replit-docs-images.util.repl.co/themes/bad-themes.gif)
+![bad themes gif](https://docimg.replit.com/themes/bad-themes.gif)
 
 In contrast, here are some examples of good dark mode background colors:
 
-![good dark themes gif](https://replit-docs-images.util.repl.co/themes/good-themes.gif)
+![good dark themes gif](https://docimg.replit.com/themes/good-themes.gif)
 
 And of course, some nice-looking light mode themes with well-chosen, accessible background colors.
 
-![good light themes gif](https://replit-docs-images.util.repl.co/themes/good-light-themes.gif)
+![good light themes gif](https://docimg.replit.com/themes/good-light-themes.gif)
 
 ## Accent Colors
 
 Accent colors should typically have a medium-high contrast relative to the background but not as high as the foreground.
 
-![accent colors](https://replit-docs-images.util.repl.co/themes/accents.png)
+![accent colors](https://docimg.replit.com/themes/accents.png)
 
 ## Syntax Highlighting
 
@@ -74,17 +74,17 @@ If you can nail those four points, your theme's going to look awesome. Here are 
 ### 1. Large Brightness Difference
 
 Notice the two circled elements in the code with different colors. In this case, `app` is quite dark while the string is very bright. When the brightness of selected colors varies too much, code becomes a lot harder to read.
-![bad code syntax highlighting colors in brightness](https://replit-docs-images.util.repl.co/themes/syntax-brightness-bad.png)
+![bad code syntax highlighting colors in brightness](https://docimg.replit.com/themes/syntax-brightness-bad.png)
 
 ### 2. Poor Color Matching
 
 Although most of the colors in this example fall within a similar brightness range, they don't look great together. It's best to choose similar colors for different areas rather than painting a rainbow all over your code. [Color Hunt](https://colorhunt.co) has some cool palettes that you can use to color different areas of your code if you need some inspiration.
-![bad color matching](https://replit-docs-images.util.repl.co/themes/bad-color-matching.png)
+![bad color matching](https://docimg.replit.com/themes/bad-color-matching.png)
 
 ### 3. Low Contrast
 
 If you have to squint to see your code, that is not good. Make sure your code has enough contrast so that it can be easily read, especially by those with impaired visibility.
-![super low contrast](https://replit-docs-images.util.repl.co/themes/super-low-contrast.png)
+![super low contrast](https://docimg.replit.com/themes/super-low-contrast.png)
 
 ---
 

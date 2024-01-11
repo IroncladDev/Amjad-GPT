@@ -6,7 +6,6 @@ import {
   Button,
   InfoIcon,
   TwitterIcon,
-  GhostwriterIcon,
   SendIcon,
 } from "node_modules";
 import { tabAtom, messageAtom } from "application/state";
@@ -15,7 +14,7 @@ import { useAtom } from "jotai";
 const defaultOptions = [
   "Describe Replit in a nutshell",
   "What is Replit to you?",
-  "What is Ghostwriter?",
+  "What is Replit AI?",
 ];
 
 const IntroInfo = ({ submit }: { submit: (v: string) => void }) => {
@@ -54,12 +53,6 @@ const IntroInfo = ({ submit }: { submit: (v: string) => void }) => {
           iconLeft={<TwitterIcon />}
           colorway="primary"
           onClick={() => window.open("https://twitter.com/amasad")}
-        />
-        <Button
-          text="Try Ghostwriter"
-          iconLeft={<GhostwriterIcon />}
-          colorway="blurple"
-          onClick={() => window.open("https://replit.com/site/ghostwriter")}
         />
       </View>
       <hr />

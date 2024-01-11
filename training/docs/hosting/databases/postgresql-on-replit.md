@@ -6,87 +6,36 @@ sidebar_position: 1
 
 ## What is PostgreSQL?
 
-PostgreSQL is a powerful, open source object-relational database system that is widely used in web applications and other software development projects. We use PostgreSQL version 15 in our integration, which allows you to easily create a production-ready PostgreSQL database directly within Replit. You can run queries and connect to the database using our provided environment variables. For more information on PostgreSQL, visit the [official documentation](https://www.postgresql.org/docs/).
+PostgreSQL is a powerful, open-source object-relational database system widely used in web applications and other software development projects. We use PostgreSQL version 15 in our integration, allowing you to easily create a production-ready PostgreSQL database directly within Replit. You can run queries and connect to the database using our provided environment variables. For more information on PostgreSQL, visit the [official documentation](https://www.postgresql.org/docs/).
 
 ## Why use PostgreSQL?
 
-<ol>
-  <li>
-    <b>Simplicity:</b> With our integration, you can easily set up a PostgreSQL
-    database without having to install any additional software or configure any
-    settings. All you need to do is click a button and you'll have a
-    fully-functional database ready to go.
-  </li>
-  <li>
-    <b>Seamless integration:</b> Our integration is designed to work seamlessly
-    with Replit, so you can easily access your database and run queries within
-    the Replit environment or within your code with minimal configuration.
-  </li>
-  <li>
-    <b>Production-ready:</b> The database created with our integration is
-    production-ready, so you can use it for real-world applications and
-    projects.
-  </li>
-  <li>
-    <b>Convenience:</b> With our provided environment variables, you can easily
-    connect to the database from your code, without having to worry about
-    setting up the connection manually. This saves you time and makes it easier
-    to get your project up and running.
-  </li>
-  <li>
-    <b>Neon documentation:</b> Provides guides on how to connect various
-    frameworks, such as Django, to your PostgreSQL database in the{' '}
-    <a href="https://neon.tech/docs/connect/">neon documentation</a>.
-  </li>
-  <li>
-    <b>Connection pooling:</b> If you need to enable connection pooling for any
-    reason, you can contact us and we'll do it manually for you. More
-    information on connection pooling can be found in the{' '}
-    <a href="https://neon.tech/docs/connect/connection-pooling/">
-      neon documentation
-    </a>
-    .
-  </li>
-  <li>
-    <b>Compute lifecycle:</b> The database will go to sleep after 5 minutes of
-    no queries, so you may experience disconnects. More information on the
-    compute lifecycle can be found in the{' '}
-    <a href="https://neon.tech/docs/introduction/compute-lifecycle/">
-      Neon documentation
-    </a>
-    .
-  </li>
-</ol>
+1. **Simplicity:** With our integration, you can easily set up a PostgreSQL database without having to install any additional software or configure any settings. All you need to do is click a button to have a fully-functional database ready to go.
+2. **Seamless integration:** Our integration is designed to work seamlessly with Replit, so you can easily access your database and run queries within the Replit environment or within your code with minimal configuration.
+3. **Production-ready:** The database created with our integration is production-ready, so you can use it for real-world applications and projects.
+4. **Convenience:** With our provided environment variables, you can easily connect to the database from your code, without having to worry about setting up the connection manually. This saves you time and makes it easier to get your project up and running.
+5. **Neon documentation:** Provides guides on how to connect various frameworks, such as Django, to your PostgreSQL database in the [neon documentation](https://neon.tech/docs/connect/connect-from-any-app).
+6. **Connection pooling:** If you need to enable connection pooling for any reason, you can contact us, and we'll do it manually. More information on connection pooling can be found in the [neon documentation](https://neon.tech/docs/connect/connection-pooling/).
+7. **Compute lifecycle:** The database will sleep after 5 minutes without queries, so you may experience disconnects. More information on the compute lifecycle can be found in the [Neon documentation](https://neon.tech/docs/introduction/compute-lifecycle/)
 
 ## Setup
 
-<ol>
-  <li>Open a new tab in Replit and type "PostgreSQL"</li>
-  <img
-    src="https://replit-docs-images.util.repl.co/images/hosting/databases/pgopentab.png"
-    alt="Open a new tab in Replit and type PostgreSQL"
-  />
-  <li>
-    In the "PostgreSQL" panel, click "Buy Cycles & create a DB" or "Use Cycles
-    to create a DB"
-  </li>
-  <img
-    src="https://replit-docs-images.util.repl.co/images/hosting/databases/pgbuy.png"
-    alt="In the PostgreSQL panel, click Buy Cycles & create a DB or Use Cycles to create a DB"
-  />
-  <li>
-    Expand the "Database env variable" section and copy the variable name
-    (DATABASE_URL), for use later
-  </li>
-  <img
-    src="https://replit-docs-images.util.repl.co/images/hosting/databases/pgvar.png"
-    alt="Expand the Database env variable section and copy the variable name (DATABASE_URL), for use later"
-  />
-</ol>
+1. Open a new tab in Replit and type "PostgreSQL"
+   ![Open a new tab in Replit and type PostgreSQL](https://docimg.replit.com/images/hosting/databases/pgopentab.png)
+2. In the "PostgreSQL" panel, click "create a database"
+   ![In the PostgreSQL panel, click create a database](https://docimg.replit.com/images/hosting/databases/pgbuy2.png)
+3. In the env section, you can view all of the relevant connection information about your database.
+   ![You can view all of the relevant connection information about your database.](https://docimg.replit.com/images/hosting/databases/pgvar2.png)
+
+## Billing
+Being serverless, Replit PostgreSQL only charges for actual usage, resulting in potential cost savings of up to 10 times.
+
+[Learn more about Replit PostgreSQL usage based billing](/hosting/about-usage-based-billing#1-postgresql-usage-metrics).
+
 
 ## SQL Explorer
 
-We provide a SQL explorer that you can use to create tables and manage your database. And if you have purchased Ghostwriter, you can use that within the SQL explorer to help you write queries.
+We provide a SQL explorer that you can use to create tables and manage your database. And if you have purchased Replit AI, you can use that within the SQL explorer to help you write queries.
 
 ## Usage (NodeJS)
 
@@ -103,7 +52,8 @@ We provide a SQL explorer that you can use to create tables and manage your data
    const knex = require("knex")({
      // We are using PostgreSQL
      client: "postgres",
-     // Use the secret we provide to connect to the Database
+     // Use the `DATABASE_URL` environment variable we provide to connect to the Database
+     // It is included in your Replit environment automatically (no need to set it up)
      connection: process.env.DATABASE_URL,
 
      // Optionally, you can use connection pools to increase query performance
@@ -180,7 +130,8 @@ We provide a SQL explorer that you can use to create tables and manage your data
 const knex = require("knex")({
   // We are using PostgreSQL
   client: "postgres",
-  // Use the secret we provide to connect to the Database
+  // Use the `DATABASE_URL` environment variable we provide to connect to the Database
+  // It is included in your Replit environment automatically (no need to set it up)
   connection: process.env.DATABASE_URL,
 
   // Optionally, you can use connection pools to increase query performance
@@ -234,6 +185,8 @@ const knex = require("knex")({
    import psycopg2.pool
 
    # Create a connection pool with a min_size of 0 and a max_size of 80
+   # Use the `DATABASE_URL` environment variable we provide to connect to the Database
+   # It is included in your Replit environment automatically (no need to set it up)
    pool = psycopg2.pool.SimpleConnectionPool(0, 80, process.env.DATABASE_URL)
 
    # Get a connection from the pool
@@ -331,7 +284,10 @@ const knex = require("knex")({
 ```py
 import psycopg2.pool
 
+
 # Create a connection pool with a min_size of 0 and a max_size of 80
+# Use the `DATABASE_URL` environment variable we provide to connect to the Database
+# It is included in your Replit environment automatically (no need to set it up)
 pool = psycopg2.pool.SimpleConnectionPool(0, 80, process.env.DATABASE_URL)
 
 # Get a connection from the pool

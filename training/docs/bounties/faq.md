@@ -77,13 +77,15 @@ No. Upon successful completion of the Bounty, the Bounty Hunter’s account will
 
 ### Am I able to cash out my Cycles into real money?
 
-Yes. Cycles earned from Bounties are eligible for cash out.
+Yes. Cycles earned from Bounties are eligible for cash out. There is a minimum threshold of 35,000 Cycles (about $350 USD) per cash out.  
 
-There is a 25% cash out fee and additional fees based on your country of residence and chosen payment method.
+There is a 25% cash out fee and additional fees based on your country of residence and chosen payment method. If you cash out more than 70,000 Cycles (about $700 USD) in a given request, then the cash out fee is reduced to 15%. 
 
 ### How do I request a Cycles cash out?
 
-Once you have earned at least 35,000 Cycles ($350 USD) from Bounties, you can contact cashout@replit.com with the subject line "Cycles Cash Out - username", replacing "username" with your Replit username. In the body of your email, write the number of Cycles that you wish to cash out.
+Please note, a Replit staff member will **never** reach out to you in order to initiate a cash out. Only you can begin the process yourself following the instructions below.
+
+Once you have earned at least 35,000 Cycles ($350 USD) from Bounties, you can contact cashout@replit.com with the subject line "Cycles Cash Out - username", replacing "username" with your Replit username. In the body of your email, write the number of Cycles that you wish to cash out. 
 
 If this is your first cash out, we will send you an online form to verify your identity on [Persona](https://withpersona.com/). You will need a valid government ID and a device with a camera to complete this verification.
 
@@ -91,13 +93,32 @@ After that, you will need to verify your payment information by completing the c
 
 Once you have verified your identity and payment information on your Replit account, we will withdraw the requested amount of Cycles from your wallet and execute the payment. If you no longer have a payable balance of Cycles equivalent to the amount you requested, we will cancel the payment and ask you for a new desired amount to withdraw.
 
-### Are [secrets](/programming-ide/storing-sensitive-information-environment-variables) included in my work to the Bounty Poster?
+### Are [secrets](/programming-ide/workspace-features/secrets) included in my work to the Bounty Poster?
 
 No, when the work is provided, contents in the `secrets` sidebar is not included. If the intent is to provide that information to the Poster, the parties should discuss how they would like to transfer that information.
 
 ### What rights are transferred in the work upon completion?
 
 All rights to the work are transferred from the Bounty Hunter to the Bounty Poster upon successful completion of the Bounty and Cycles are exchanged. By submitting a work for acceptance, the Bounty Hunter represents that they have all necessary rights in the content of the work to transfer to the Poster, as specified in our [terms](https://replit.com/site/cycles-terms).
+
+### What if I can't respond or deliver on time?
+
+When accepting a Bounty, it's very important to set expectations around timelines and communication cadence with the Bounty Poster in one of your first exchanges.
+
+Some Posters would like an email or message check-in every week, and some prefer daily check-ins. Some Posters use the Bounties platform for critical time-sensitive work and in this case, it's very important to set expectations on whether or not their intended deadline is possible.
+
+When a Hunter does not respond in a timely manner, it often causes harm to the Poster's project. Repeated failure to set and meet communication expectations with Bounty Posters may lead to suspension of your Bounty Hunter account.
+
+We understand that sometimes there are uncontrollable circumstances due to which a Hunter may not respond in a timely manner. If that is the case, we request you to let us know by emailing bounties@replit.com. 
+
+### What if I am unable to complete a Bounty?
+
+If you are unable to complete a Bounty, please email bounties@replit.com along with any mitigating circumstances so that we can assist you. Please note that if this happens more than once, you may be  suspended from the Bounties platform.
+
+### Is there a limit on how many Bounties I can work on at a given time?
+
+We recommend that you don’t work on more than two Bounties at a given time. This is to prevent yourself from burning out by taking on too many Bounties simultaneously. This also enables you to give focused attention to a few clients at a given time.
+
 
 ## Support
 
@@ -112,3 +133,5 @@ If you are unable to contact the Poster or Bounty Hunter and need assistance wit
 ### What if I have a dispute with Poster or a problem with the work?
 
 We encourage our Bounty Posters and Bounty Hunters to try and settle conflicts among themselves. If for any reason this fails, or if you encounter non-permitted usage, users can contact the Moderator via the “Contact Support” button under the “Having trouble?” section of the Bounties page.
+
+ All decisions by Replit in case of a dispute are final and binding on both the Hunter and Poster.

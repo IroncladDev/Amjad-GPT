@@ -10,7 +10,7 @@ If the repository is private, you'll be prompted for your username and password.
 
 In the example shown below, we run `git clone https://github.com/ritza-co/git-demo.git` and can see the new files appear in a subdirectory on the left called `git-demo`.
 
-![Git Clone](https://replit-docs-images.util.repl.co/images/programming-ide/git-with-replit/git-clone.png)
+![Git Clone](https://docimg.replit.com/images/programming-ide/git-with-replit/git-clone.png)
 
 ## Making changes on Replit and pushing back to a remote Git host
 
@@ -34,7 +34,7 @@ Once you've added the files, you can run `git status` again to see that all the 
 
 After running `git add .`, all files and changes are tracked by Git, so they appear under "Changes to be committed".
 
-![Git Status and Git Add](https://replit-docs-images.util.repl.co/images/programming-ide/git-with-replit/git-status-git-add.png)
+![Git Status and Git Add](https://docimg.replit.com/images/programming-ide/git-with-replit/git-status-git-add.png)
 
 Before we can commit the files, we'll have to tell Git who we are by configuring a name and email address. Run the following commands, using your own name and email address:
 
@@ -54,7 +54,7 @@ You'll be prompted for your username and password, whether or not the repository
 
 If everything works out, you should see a "Writing Objects..." message, followed by "done", as shown below.
 
-![Git Commit Git Push](https://replit-docs-images.util.repl.co/images/programming-ide/git-with-replit/git-config-commit-push.png)
+![Git Commit Git Push](https://docimg.replit.com/images/programming-ide/git-with-replit/git-config-commit-push.png)
 
 ## Pushing without typing in your password or access token
 
@@ -64,7 +64,7 @@ If you prefer, you can store your credentials as part of the remote Git URL as e
 
 Under the secrets tab in the sidebar, add a new secret. Put `GIT_URL` as the key and the URL to your Git repository with your credentials as the value. For example, on GitHub you use the format `https://<username>:<github-access-token>@github.com/<user-or-organization>/<repository>`. Click 'Add Secret'. You may have to restart your shell before this secret becomes available, which you can do by typing `exit` in the shell.
 
-![Add secret](https://replit-docs-images.util.repl.co/images/programming-ide/git-with-replit/add-secret.png)
+![Add secret](https://docimg.replit.com/images/programming-ide/git-with-replit/add-secret.png)
 
 Now you can use `git push $GIT_URL` to push up to your remote Git host without needing to type in your credentials.
 

@@ -30,9 +30,7 @@ app.post(async (req: NextApiRequest, res: NextApiResponse) => {
     if (usage >= total) {
       res.status(429).json({
         success: true,
-        answer: `You've used up your quota of ${total} responses.  If you would like to increase your quota, you can add your own OpenAI API key in settings, or [tip this Repl](https://ai.repl.page/__repl).
-        
-Alternatively, you can try out [Ghostwriter Chat](https://replit.com/site/ghostwriter).`,
+        answer: `You've used up your quota of ${total} responses. Please provide an API key in the Settings tab to continue.`,
       });
       return;
     }

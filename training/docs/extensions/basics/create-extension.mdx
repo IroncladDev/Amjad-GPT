@@ -1,0 +1,149 @@
+---
+sidebar_position: 1
+title: "Create an Extension"
+---
+
+import { ResourceCard } from "../../src/components/homepage/ResourceCard.tsx";
+import TemplateCard from "../../src/components/TemplateCard.tsx";
+
+# Create your first Replit Extension
+
+#### Learn the basics of extension development by building and previewing a simple extension.
+
+In this guide, you'll build a sample "Hello, world!" React.js extension with a custom Tool UI.
+
+---
+
+## Before you begin
+
+- Make sure you have a Replit account — you'll need to be logged in to create an extension.
+- You'll also need to make sure you've verified your email address, as this is required to publish an extension.
+- You'll need to be familiar with Javascript, and ideally React.js, which is our preferred framework for building UI Extensions.
+
+## Create an Extension Repl
+
+To start building a Replit extension, you need to create an Extension Repl. This is a special Repl that contains all the configuration necessary to build, preview, and release your extension.
+
+<video
+  controls
+  width="80%"
+  loop
+  src="https://docimg.replit.com/extensions/videos/create.mp4"
+  type="video/mp4"
+></video>
+
+<br />
+
+1. <span>
+
+   Fork an [Extension Template](/extensions/basics/templates/). Give it a name
+   and click "Create Extension Repl"
+
+    </span>
+
+   <TemplateCard
+     title="React Extension"
+     description="A starter template for Replit Extensions using the React JavaScript framework."
+     icon="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1686078353911_ba21fa6fc99b35af35cfedfea80b6c9d.png"
+     category="Extensions"
+     href="https://replit.com/new/extension?template=656d6107-3a39-4802-b8d9-59479cc5e358"
+   />
+   <br />
+   <TemplateCard
+     title="Javascript Extension"
+     description="A starter template for a Replit Extension with Vanilla JavaScript"
+     icon="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1686078345101_3d922057f74eb4d1429c2850c332883f.png"
+     category="Extensions"
+     href="https://replit.com/new/extension?template=44dadedd-8045-46a9-ad28-2b86699a8616"
+   />
+
+2. <span>
+
+   After creating the Repl, your Workspace should open. On the left side
+   you'll find a code editor, and on the right side, you'll find the Extension
+   Devtools tab. [Learn more about devtools
+   →](/extensions/development/devtools)
+
+   </span>
+
+## Preview your extension
+
+Building an extension is a lot easier when you can see what you're building. We've made it easy to preview your extension in a Repl, similar to the Webview you're familiar with in other Repls.
+
+_Note: Extension Repls do not support the regular webview. Read more in the [FAQ →](/extensions/faq)_
+
+<video
+  controls
+  width="80%"
+  loop
+  src="https://docimg.replit.com/extensions/videos/preview.mp4"
+  type="video/mp4"
+></video>
+
+1. **Open Extension Devtools**
+2. **Click "Load Locally"**  
+   This will run your Repl's development server, if it's not already running, and load your extension in the preview window.
+3. **Open a development preview tab**  
+   Click the "Preview" button next to any Tool or File Handler in the Extension Devtools to open a preview tab. This will open a new tab in your Workspace, where you can see your extension in action.
+
+## Add features
+
+Next, it's time to start adding features using the Replit Extensions API.
+
+There are two ways to use the APIs, depending on which template you chose:
+
+- **React Extensions**  
+  In React Extensions, some APIs have [hooks](/extensions/category/hooks), while others are available on the `replit` object returned by [`useReplit()`](extensions/development/react/hooks/useReplit).
+- **Javascript Extensions**  
+   In Javascript Extensions, all APIs are available on the global `replit` object created by the [`init` API](/extensions/api/init)
+
+Features are added through the Devtools UI, which is available in the [Extension Devtools](/extensions/development/devtools) tab. Features are divided into three categories:
+
+1. **Tools (_UI Extensions_)**  
+   An custom user interface presented as a Tab in the workspace. Examples include a ReplDB editor or a Chat Extension. Learn how to [build your first tool](/extensions/examples/snippet-manager).
+2. **File Handlers (_File Editors and Icons_)**  
+   File handlers allow you to build Tools and add icons for specific file types. Examples include a JSON file editor or a CSV file editor. Learn how to [build your first file handler](/extensions/examples/json-editor). Under the hood, file handlers are just tools with a filetype association.
+
+### Using devtools to scaffold features
+
+Extension developer tools make it easy to scaffold out new functionality without manually editing the Manifest file. (_Behind the scenes, all the edits you make here are reflected in the Manifest file._)
+
+<video
+  controls
+  width="80%"
+  loop
+  src="https://docimg.replit.com/extensions/videos/add-feature.mp4"
+  type="video/mp4"
+></video>
+
+## Next steps
+
+<ResourceCard
+  href="/extensions/category/examples"
+  title="Follow a tutorial"
+  description="Learn how to build complex example extensions with a step-by-step tutorial."
+/>
+
+<br />
+
+<ResourceCard
+  href="/extensions/category/api-reference"
+  title="Explore the API Reference"
+  description="Learn about the APIs available to you as an extension developer."
+/>
+
+<br />
+
+<ResourceCard
+  href="/extensions/api/debug"
+  title="Debug your extension"
+  description="Learn to use extension dev tools to debug problems with your extension code."
+/>
+
+<br />
+
+<ResourceCard
+  href="/extensions/publish"
+  title="Publish your extension"
+  description="Learn how to publish your extension to the Replit Extensions Store."
+/>

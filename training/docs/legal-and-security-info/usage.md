@@ -8,8 +8,16 @@ Replit has certain soft and hard limits in using its service. Hard limits are au
 
 - Concurrent Repls: 20 (hard)
 
-- Storage per Repl: 1 GB (hard)
+- Storage per Repl: determined by plan and storage used by other Repls (hard)
 
-- Storage per account: determined by plan (soft)
+- Storage per account: determined by plan (hard)
 
-- Network bandwidth: 100 GB (soft)
+- Network bandwidth: determined by plan (soft)
+
+In addition, regardless of your plan, some limits and restrictions are imposed on your Repl’s content and its network activity in order to enforce our Terms of Service. If these limits are exceeded, your Repl may become temporarily unavailable, or particular operations may fail with an error. These include:
+
+- A limit on the number of concurrent outgoing network connections in a given period.
+
+- Limits on the frequency and size of requests to Replit’s internal GraphQL API.
+
+- Restrictions on the use of code that appears to violate our Terms of Service, such as cryptocurrency mining.

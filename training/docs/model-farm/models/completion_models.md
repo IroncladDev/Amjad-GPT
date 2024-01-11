@@ -1,0 +1,19 @@
+# Completion Models
+
+Completion models are designed for single-turn tasks that require generating text based on a given prompt but don't necessitate maintaining a conversational history. These models excel in applications like text summarization, code generation, and translation, where the focus is on generating accurate and relevant content in one go, rather than engaging in back-and-forth dialogue. In contrast, Chat models are optimized for interactive, multi-turn conversations, and they are better at understanding and generating nuanced responses within a conversational context. While both types of models are capable of generating text, Completion models are generally more suited for tasks that don't require the complexities of conversational state and context.
+
+## Google
+
+### text-bison
+
+#### Parameters
+
+| Parameter Name  | Streaming Supported | Type             | Description                                                                                                                                                                                                                                        | Min  | Max  | Default |
+|-----------------|---------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|------|---------|
+| content         | True                | string \| string[]| Text input to generate model response. Prompts can include preamble, questions, suggestions, instructions, or examples. This should be encoded as an array of strings.                                                                                |      |      |         |
+| temperature     | True                | float            | The temperature is used for sampling during the response generation. Controls the degree of randomness in token selection. Lower temperatures result in less randomness. Higher temperatures can lead to more diverse or creative results.          | 0    | 1    | 0.2     |
+| maxOutputTokens | True                | int              | Maximum number of tokens that can be generated in the response. Specify a lower value for shorter responses and a higher value for longer responses. The maximum value may be lower for certain models.                                             | 1    | 2048 | 1024    |
+| topK            | True                | int              | Top-K changes how the model selects tokens for output. Specify a lower value for less random responses and a higher value for more random responses.                                                                                                 | 1    | 40   | 40      |
+| candidateCount  | False               | int              | The number of response variations to return.                                                                                                                                                                                                        | 1    | 8    | 1       |
+| stopSequences   | True                | array of strings | Specifies a list of strings that tells the model to stop generating text if one of the strings is encountered in the response. Strings are case-sensitive.                                                                                           |      |      |         |
+| topP            | True                | float            | Top-p changes how the model selects tokens for output. Tokens are selected from most K (see topK parameter) probable to least until the sum of their probabilities equals the top-p value.                                                           | 0    | 1    | 0.95    |

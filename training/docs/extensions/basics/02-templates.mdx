@@ -1,0 +1,32 @@
+---
+title: Templates
+sidebar_position: 2
+---
+
+import TemplateCard from "../../src/components/TemplateCard";
+
+# Extension Templates
+
+Replit provides a few templates to help you get started with your extension. You can find them in the "Create Repl" menu, or fork one by clicking a link below.
+
+<div style={{
+  display: 'grid',
+  gap: 12,
+  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr)'
+}}>
+  <TemplateCard
+    title="React Extension"
+    description="A starter template for Replit Extensions using the React JavaScript framework."
+    icon="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1686078353911_ba21fa6fc99b35af35cfedfea80b6c9d.png"
+    category="Extensions"
+    href="https://replit.com/new/extension?template=656d6107-3a39-4802-b8d9-59479cc5e358"
+  />
+
+  <TemplateCard
+    title="Javascript Extension"
+    description="A starter template for a Replit Extension with Vanilla JavaScript"
+    icon="https://replit.com/cdn-cgi/image/width=64,quality=80,format=auto/https://storage.googleapis.com/replit/images/1686078345101_3d922057f74eb4d1429c2850c332883f.png"
+    category="Extensions"
+    href="https://replit.com/new/extension?template=44dadedd-8045-46a9-ad28-2b86699a8616"
+  />
+</div>
